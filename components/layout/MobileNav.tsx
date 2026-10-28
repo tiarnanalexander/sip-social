@@ -1,12 +1,54 @@
 "use client";
 
-import { useState, useId } from "react";
+import { useEffect, useState, useId } from "react";
+import { createPortal } from "react-dom";
 import Link from "next/link";
 import type { NavLink } from "@/lib/content/types";
 
 export function MobileNav({ items }: { items: NavLink[] }) {
   const [open, setOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
   const panelId = useId();
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  // Lock background scroll while the panel is open.
+  useEffect(() => {
+    if (!open) return;
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = prev;
+    };
+  }, [open]);
+
+  const panel = open && (
+    <div id={panelId} className="fixed inset-0 z-[100] flex flex-col bg-cream pt-28">
+      <nav aria-label="Mobile" className="shell flex flex-col gap-1">
+        {items.map((item, i) => (
+          <Link
+            key={item.href}
+            href={item.href}
+            onClick={() => setOpen(false)}
+            className="rise border-b border-cream-edge py-4 font-display text-3xl"
+            style={{ animationDelay: `${i * 0.05}s` }}
+          >
+            {item.label}
+          </Link>
+        ))}
+        <Link
+          href="/enquire"
+          onClick={() => setOpen(false)}
+          className="rise mt-6 inline-flex w-fit items-center rounded-full bg-ink px-6 py-3 font-semibold text-cream"
+          style={{ animationDelay: `${items.length * 0.05}s` }}
+        >
+          Check availability
+        </Link>
+      </nav>
+    </div>
+  );
 
   return (
     <div className="md:hidden">
@@ -35,34 +77,16 @@ export function MobileNav({ items }: { items: NavLink[] }) {
         />
       </button>
 
-      {open && (
-        <div
-          id={panelId}
-          className="fixed inset-0 z-40 flex flex-col bg-cream pt-28"
-        >
-          <nav aria-label="Mobile" className="shell flex flex-col gap-1">
-            {items.map((item, i) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                onClick={() => setOpen(false)}
-                className="rise border-b border-cream-edge py-4 font-display text-3xl"
-                style={{ animationDelay: `${i * 0.05}s` }}
-              >
-                {item.label}
-              </Link>
-            ))}
-            <Link
-              href="/enquire"
-              onClick={() => setOpen(false)}
-              className="rise mt-6 inline-flex w-fit items-center rounded-full bg-ink px-6 py-3 font-semibold text-cream"
-              style={{ animationDelay: `${items.length * 0.05}s` }}
-            >
-              Check availability
-            </Link>
-          </nav>
-        </div>
-      )}
+      {/*
+       * Rendered through a portal into document.body rather than in place:
+       * the header has backdrop-blur (a backdrop-filter), and a
+       * backdrop-filter/filter ancestor becomes the containing block for a
+       * `position: fixed` descendant instead of the viewport. Left in
+       * place, this panel was being squashed into the header's own ~80px
+       * strip rather than covering the screen - which is why it looked
+       * broken/transparent and the links underneath weren't reachable.
+       */}
+      {mounted && panel && createPortal(panel, document.body)}
     </div>
   );
 }
