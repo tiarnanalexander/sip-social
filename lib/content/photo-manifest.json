@@ -1,0 +1,444 @@
+{
+  "cart-hero": {
+    "alt": "The Sip Social mobile coffee cart set up and ready to serve",
+    "source": "WhatsApp Image 2026-10-28 at 14.30.44 (2).jpeg",
+    "variants": {
+      "wide": {
+        "file": "cart-hero-wide.jpg",
+        "w": 1536,
+        "h": 864
+      },
+      "ultra": {
+        "file": "cart-hero-ultra.jpg",
+        "w": 1536,
+        "h": 658
+      },
+      "portrait": {
+        "file": "cart-hero-portrait.jpg",
+        "w": 1280,
+        "h": 1600
+      },
+      "square": {
+        "file": "cart-hero-square.jpg",
+        "w": 1536,
+        "h": 1536
+      }
+    }
+  },
+  "zoe-portrait": {
+    "alt": "Zoe Stone, founder of Sip Social, holding a freshly made coffee",
+    "source": "WhatsApp Image 2026-10-28 at 14.30.45.jpeg",
+    "variants": {
+      "wide": {
+        "file": "zoe-portrait-wide.jpg",
+        "w": 1536,
+        "h": 864
+      },
+      "ultra": {
+        "file": "zoe-portrait-ultra.jpg",
+        "w": 1536,
+        "h": 658
+      },
+      "portrait": {
+        "file": "zoe-portrait-portrait.jpg",
+        "w": 1280,
+        "h": 1600
+      },
+      "square": {
+        "file": "zoe-portrait-square.jpg",
+        "w": 1536,
+        "h": 1536
+      }
+    }
+  },
+  "zoe-with-cart": {
+    "alt": "Zoe Stone standing beside the Sip Social coffee cart",
+    "source": "WhatsApp Image 2026-10-28 at 14.30.45 (2).jpeg",
+    "variants": {
+      "wide": {
+        "file": "zoe-with-cart-wide.jpg",
+        "w": 1536,
+        "h": 864
+      },
+      "ultra": {
+        "file": "zoe-with-cart-ultra.jpg",
+        "w": 1536,
+        "h": 658
+      },
+      "portrait": {
+        "file": "zoe-with-cart-portrait.jpg",
+        "w": 1280,
+        "h": 1600
+      },
+      "square": {
+        "file": "zoe-with-cart-square.jpg",
+        "w": 1536,
+        "h": 1536
+      }
+    }
+  },
+  "zoe-behind-cart": {
+    "alt": "Barista serving coffee from behind the Sip Social cart",
+    "source": "WhatsApp Image 2026-10-28 at 14.30.45 (4).jpeg",
+    "variants": {
+      "wide": {
+        "file": "zoe-behind-cart-wide.jpg",
+        "w": 1536,
+        "h": 864
+      },
+      "ultra": {
+        "file": "zoe-behind-cart-ultra.jpg",
+        "w": 1536,
+        "h": 658
+      },
+      "portrait": {
+        "file": "zoe-behind-cart-portrait.jpg",
+        "w": 1280,
+        "h": 1600
+      },
+      "square": {
+        "file": "zoe-behind-cart-square.jpg",
+        "w": 1536,
+        "h": 1536
+      }
+    }
+  },
+  "cart-sunlit": {
+    "alt": "Sunlight falling across the Sip Social coffee cart during an event",
+    "source": "WhatsApp Image 2026-10-28 at 14.30.45 (5).jpeg",
+    "variants": {
+      "wide": {
+        "file": "cart-sunlit-wide.jpg",
+        "w": 1610,
+        "h": 905
+      },
+      "ultra": {
+        "file": "cart-sunlit-ultra.jpg",
+        "w": 1610,
+        "h": 690
+      },
+      "portrait": {
+        "file": "cart-sunlit-portrait.jpg",
+        "w": 1280,
+        "h": 1600
+      },
+      "square": {
+        "file": "cart-sunlit-square.jpg",
+        "w": 1600,
+        "h": 1600
+      }
+    }
+  },
+  "espresso-pour": {
+    "alt": "Espresso pouring into a branded Sip Social takeaway cup",
+    "source": "WhatsApp Image 2026-10-28 at 14.30.44 (3).jpeg",
+    "variants": {
+      "wide": {
+        "file": "espresso-pour-wide.jpg",
+        "w": 1462,
+        "h": 822
+      },
+      "ultra": {
+        "file": "espresso-pour-ultra.jpg",
+        "w": 1462,
+        "h": 626
+      },
+      "portrait": {
+        "file": "espresso-pour-portrait.jpg",
+        "w": 1279,
+        "h": 1600
+      },
+      "square": {
+        "file": "espresso-pour-square.jpg",
+        "w": 1462,
+        "h": 1462
+      }
+    }
+  },
+  "biscuits": {
+    "alt": "Shortbread biscuits stamped with the Sip Social logo",
+    "source": "WhatsApp Image 2026-10-28 at 14.31.37 (2).jpeg",
+    "variants": {
+      "wide": {
+        "file": "biscuits-wide.jpg",
+        "w": 1536,
+        "h": 864
+      },
+      "ultra": {
+        "file": "biscuits-ultra.jpg",
+        "w": 1536,
+        "h": 658
+      },
+      "portrait": {
+        "file": "biscuits-portrait.jpg",
+        "w": 1280,
+        "h": 1600
+      },
+      "square": {
+        "file": "biscuits-square.jpg",
+        "w": 1536,
+        "h": 1536
+      }
+    }
+  },
+  "machine-plants": {
+    "alt": "The espresso machine on the Sip Social cart beside a window",
+    "source": "WhatsApp Image 2026-10-28 at 14.33.29 (2).jpeg",
+    "variants": {
+      "wide": {
+        "file": "machine-plants-wide.jpg",
+        "w": 1818,
+        "h": 1022
+      },
+      "ultra": {
+        "file": "machine-plants-ultra.jpg",
+        "w": 1818,
+        "h": 779
+      },
+      "portrait": {
+        "file": "machine-plants-portrait.jpg",
+        "w": 1279,
+        "h": 1600
+      },
+      "square": {
+        "file": "machine-plants-square.jpg",
+        "w": 1600,
+        "h": 1600
+      }
+    }
+  },
+  "cups-window": {
+    "alt": "Stacks of branded Sip Social cups ready for guests",
+    "source": "WhatsApp Image 2026-10-28 at 14.31.36.jpeg",
+    "variants": {
+      "wide": {
+        "file": "cups-window-wide.jpg",
+        "w": 1630,
+        "h": 916
+      },
+      "ultra": {
+        "file": "cups-window-ultra.jpg",
+        "w": 1630,
+        "h": 698
+      },
+      "portrait": {
+        "file": "cups-window-portrait.jpg",
+        "w": 1280,
+        "h": 1600
+      },
+      "square": {
+        "file": "cups-window-square.jpg",
+        "w": 1600,
+        "h": 1600
+      }
+    }
+  },
+  "cups-machine": {
+    "alt": "Branded cups stacked on the espresso machine at a Sip Social event",
+    "source": "WhatsApp Image 2026-10-28 at 14.31.37.jpeg",
+    "variants": {
+      "wide": {
+        "file": "cups-machine-wide.jpg",
+        "w": 1536,
+        "h": 864
+      },
+      "ultra": {
+        "file": "cups-machine-ultra.jpg",
+        "w": 1536,
+        "h": 658
+      },
+      "portrait": {
+        "file": "cups-machine-portrait.jpg",
+        "w": 1280,
+        "h": 1600
+      },
+      "square": {
+        "file": "cups-machine-square.jpg",
+        "w": 1536,
+        "h": 1536
+      }
+    }
+  },
+  "cart-aboard": {
+    "alt": "The Sip Social coffee cart with its branded A-board",
+    "source": "WhatsApp Image 2026-10-28 at 14.30.44.jpeg",
+    "variants": {
+      "wide": {
+        "file": "cart-aboard-wide.jpg",
+        "w": 1314,
+        "h": 739
+      },
+      "ultra": {
+        "file": "cart-aboard-ultra.jpg",
+        "w": 1314,
+        "h": 563
+      },
+      "portrait": {
+        "file": "cart-aboard-portrait.jpg",
+        "w": 1280,
+        "h": 1600
+      },
+      "square": {
+        "file": "cart-aboard-square.jpg",
+        "w": 1314,
+        "h": 1314
+      }
+    }
+  },
+  "barista-profile": {
+    "alt": "A Sip Social barista steaming milk at the espresso machine",
+    "source": "WhatsApp Image 2026-10-28 at 14.28.58 (3).jpeg",
+    "variants": {
+      "wide": {
+        "file": "barista-profile-wide.jpg",
+        "w": 1324,
+        "h": 744
+      },
+      "ultra": {
+        "file": "barista-profile-ultra.jpg",
+        "w": 1324,
+        "h": 567
+      },
+      "portrait": {
+        "file": "barista-profile-portrait.jpg",
+        "w": 1280,
+        "h": 1600
+      },
+      "square": {
+        "file": "barista-profile-square.jpg",
+        "w": 1324,
+        "h": 1324
+      }
+    }
+  },
+  "cart-serving": {
+    "alt": "Coffee being prepared on the Sip Social cart during a pop-up",
+    "source": "WhatsApp Image 2026-10-28 at 14.28.58 (7).jpeg",
+    "variants": {
+      "wide": {
+        "file": "cart-serving-wide.jpg",
+        "w": 1536,
+        "h": 864
+      },
+      "ultra": {
+        "file": "cart-serving-ultra.jpg",
+        "w": 1536,
+        "h": 658
+      },
+      "portrait": {
+        "file": "cart-serving-portrait.jpg",
+        "w": 1280,
+        "h": 1600
+      },
+      "square": {
+        "file": "cart-serving-square.jpg",
+        "w": 1536,
+        "h": 1536
+      }
+    }
+  },
+  "beans": {
+    "alt": "Freshly roasted coffee beans in the grinder hopper",
+    "source": "WhatsApp Image 2026-10-28 at 14.33.29 (3).jpeg",
+    "variants": {
+      "wide": {
+        "file": "beans-wide.jpg",
+        "w": 1536,
+        "h": 864
+      },
+      "ultra": {
+        "file": "beans-ultra.jpg",
+        "w": 1536,
+        "h": 658
+      },
+      "portrait": {
+        "file": "beans-portrait.jpg",
+        "w": 1280,
+        "h": 1600
+      },
+      "square": {
+        "file": "beans-square.jpg",
+        "w": 1536,
+        "h": 1536
+      }
+    }
+  },
+  "portafilter": {
+    "alt": "Portafilter and tamper on the Sip Social cart",
+    "source": "WhatsApp Image 2026-10-28 at 14.33.29.jpeg",
+    "variants": {
+      "wide": {
+        "file": "portafilter-wide.jpg",
+        "w": 1536,
+        "h": 864
+      },
+      "ultra": {
+        "file": "portafilter-ultra.jpg",
+        "w": 1536,
+        "h": 658
+      },
+      "portrait": {
+        "file": "portafilter-portrait.jpg",
+        "w": 1280,
+        "h": 1600
+      },
+      "square": {
+        "file": "portafilter-square.jpg",
+        "w": 1536,
+        "h": 1536
+      }
+    }
+  },
+  "cards-fanned": {
+    "alt": "Sip Social business cards fanned out on a wooden table",
+    "source": "WhatsApp Image 2026-10-28 at 14.33.28.jpeg",
+    "variants": {
+      "wide": {
+        "file": "cards-fanned-wide.jpg",
+        "w": 1536,
+        "h": 864
+      },
+      "ultra": {
+        "file": "cards-fanned-ultra.jpg",
+        "w": 1536,
+        "h": 658
+      },
+      "portrait": {
+        "file": "cards-fanned-portrait.jpg",
+        "w": 1280,
+        "h": 1600
+      },
+      "square": {
+        "file": "cards-fanned-square.jpg",
+        "w": 1536,
+        "h": 1536
+      }
+    }
+  },
+  "cards-holder": {
+    "alt": "Branded Sip Social cards in a holder on the coffee cart",
+    "source": "WhatsApp Image 2026-10-28 at 14.31.37 (3).jpeg",
+    "variants": {
+      "wide": {
+        "file": "cards-holder-wide.jpg",
+        "w": 1536,
+        "h": 864
+      },
+      "ultra": {
+        "file": "cards-holder-ultra.jpg",
+        "w": 1536,
+        "h": 658
+      },
+      "portrait": {
+        "file": "cards-holder-portrait.jpg",
+        "w": 1280,
+        "h": 1600
+      },
+      "square": {
+        "file": "cards-holder-square.jpg",
+        "w": 1536,
+        "h": 1536
+      }
+    }
+  }
+}
