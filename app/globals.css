@@ -129,18 +129,17 @@ p { text-wrap: pretty; }
 @media (min-width: 80rem)  { .shell { padding-inline: 3rem; } }
 
 /* ─── Instagram feed marquee ─── */
+/* The track renders the row twice back to back; translating by exactly
+   -50% shifts by one full copy's width, so the loop point is invisible. */
 
-@keyframes marquee-left {
+@keyframes ig-marquee {
   from { transform: translateX(0); }
   to   { transform: translateX(-50%); }
 }
-@keyframes marquee-right {
-  from { transform: translateX(-50%); }
-  to   { transform: translateX(0); }
+.animate-ig-marquee {
+  animation: ig-marquee 85s linear infinite;
 }
-.animate-marquee-left  { animation: marquee-left 55s linear infinite; }
-.animate-marquee-right { animation: marquee-right 55s linear infinite; }
 
 @media (prefers-reduced-motion: reduce) {
-  .animate-marquee-left, .animate-marquee-right { animation: none; }
+  .animate-ig-marquee { animation: none; }
 }

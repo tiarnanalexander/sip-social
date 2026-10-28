@@ -8,7 +8,7 @@ import "./globals.css";
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: `${site.name} — Mobile Coffee Cart Hire | ${site.tagline}`,
+    default: `${site.name} - Mobile Coffee Cart Hire | ${site.tagline}`,
     template: `%s | ${site.name}`,
   },
   description: site.description,

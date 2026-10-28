@@ -65,7 +65,7 @@ export default async function EventTypePage({
             <p className="measure-s mt-6 text-lg text-stone">{event.intro}</p>
             <div className="mt-9 flex flex-wrap gap-4">
               <Button href={`/enquire?event=${event.slug}`} variant="solid">
-                Check your date
+                Check availability
               </Button>
               <Button href="/packages" variant="outline">
                 See packages

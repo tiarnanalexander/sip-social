@@ -17,14 +17,17 @@ const order: { key: keyof typeof manifest; featured?: boolean }[] = [
   { key: "zoe-behind-cart" },
   { key: "cart-sunlit" },
   { key: "beans" },
-  { key: "cart-aboard" },
   { key: "portafilter" },
-  { key: "cups-machine" },
   { key: "barista-profile" },
   { key: "cart-serving" },
   { key: "cards-fanned" },
   { key: "cards-holder" },
 ];
+// Dropped from the public gallery as near-duplicates of a shot already
+// above (same framing/background, nothing new for a visitor to see):
+// "cart-aboard" repeats "cart-hero", and "cups-machine" repeats
+// "cups-window". The files are still on disk if a future refresh wants
+// one of them back in a genuinely different spot.
 
 const manifestTyped = manifest as Record<string, { alt: string }>;
 

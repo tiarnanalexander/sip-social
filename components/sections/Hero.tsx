@@ -34,29 +34,16 @@ export function Hero() {
 
           <div className="rise rise-4 mt-9 flex flex-wrap gap-4">
             <Button href="/enquire" variant="solid">
-              Check your date
+              Check availability
             </Button>
             <Button href="/packages" variant="outline">
               See the packages
             </Button>
           </div>
 
-          <dl className="rise rise-4 mt-12 grid max-w-md grid-cols-3 gap-6 border-t border-cream-edge pt-6">
-            {[
-              ["Fully", "mobile"],
-              ["Fully", "equipped"],
-              ["Fully", "insured"],
-            ].map(([a, b]) => (
-              <div key={b}>
-                <dt className="sr-only">{a} {b}</dt>
-                <dd className="font-display text-base leading-tight sm:text-lg">
-                  {a}
-                  <br />
-                  {b}
-                </dd>
-              </div>
-            ))}
-          </dl>
+          <p className="rise rise-4 mt-12 max-w-md border-t border-cream-edge pt-6 font-display text-lg text-stone">
+            Mobile. Equipped. Insured.
+          </p>
         </div>
 
         <div className="order-1 lg:order-2">

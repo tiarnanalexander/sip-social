@@ -13,7 +13,10 @@ export function SiteFooter() {
       <div className="shell py-16">
         <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-[1.3fr_1fr_1fr_1.1fr]">
           <div>
-            <Logo className="brightness-0 invert" />
+            <Logo
+              markClassName="h-auto w-28 brightness-0 invert sm:w-32"
+              labelClassName="-mt-1 ml-0.5 font-sans text-[0.78rem] font-bold tracking-[0.3em] text-cream sm:text-[0.85rem]"
+            />
             <p className="mt-5 max-w-[30ch] text-[0.95rem] text-cream/70">
               {site.tagline}.
             </p>
@@ -77,7 +80,7 @@ export function SiteFooter() {
           <p>
             © {new Date().getFullYear()} {site.legalName}. Est. {site.foundedYear}.
           </p>
-          <p>Fully mobile, fully equipped, fully insured.</p>
+          <p>Mobile. Equipped. Insured.</p>
         </div>
       </div>
     </footer>

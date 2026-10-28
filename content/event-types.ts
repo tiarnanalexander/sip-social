@@ -113,7 +113,7 @@ export const eventTypes: EventType[] = [
     slug: "private-party-coffee-cart",
     name: "Private Party Coffee Cart",
     shortName: "Private parties",
-    heroImage: { base: "/images/photos/zoe-portrait", alt: "Zoe Stone serving coffee at a private event" },
+    heroImage: { base: "/images/photos/cart-serving", alt: "Coffee being prepared on the Sip Social cart at a private event" },
     intro:
       "Birthdays, christenings, garden parties and family celebrations — proper coffee for your guests, without you lifting a finger.",
     body: [

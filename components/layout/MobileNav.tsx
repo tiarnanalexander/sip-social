@@ -58,7 +58,7 @@ export function MobileNav({ items }: { items: NavLink[] }) {
               className="rise mt-6 inline-flex w-fit items-center rounded-full bg-ink px-6 py-3 font-semibold text-cream"
               style={{ animationDelay: `${items.length * 0.05}s` }}
             >
-              Check your date
+              Check availability
             </Link>
           </nav>
         </div>

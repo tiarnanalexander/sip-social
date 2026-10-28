@@ -53,7 +53,7 @@ export default function AboutPage() {
           </div>
 
           <div className="mt-10 flex flex-wrap gap-4">
-            <Button href="/enquire" variant="solid">Check your date</Button>
+            <Button href="/enquire" variant="solid">Check availability</Button>
             <Button href="/packages" variant="outline">See the packages</Button>
           </div>
         </div>
@@ -73,17 +73,22 @@ export default function AboutPage() {
       </section>
 
       <section className="border-y border-cream-edge bg-cream-deep">
-        <div className="shell grid gap-8 py-16 sm:grid-cols-3">
-          {[
-            { k: "Fully mobile", v: "We travel to you, anywhere in the UK." },
-            { k: "Fully equipped", v: "Barista-grade machine, grinder and everything in between." },
-            { k: "Fully insured", v: "Public liability cover, details on request for your venue." },
-          ].map((item) => (
-            <div key={item.k}>
-              <h2 className="font-display text-2xl">{item.k}</h2>
-              <p className="mt-2 text-[0.95rem] text-stone">{item.v}</p>
-            </div>
-          ))}
+        <div className="shell py-16">
+          <p className="font-display text-2xl sm:text-3xl">
+            Mobile. Equipped. Insured.
+          </p>
+          <div className="mt-10 grid gap-8 sm:grid-cols-3">
+            {[
+              { k: "Anywhere in the UK", v: "We travel to you — no venue is too far." },
+              { k: "Barista-grade kit", v: "Proper machine, grinder and everything in between." },
+              { k: "Covered on-site", v: "Public liability cover, details on request for your venue." },
+            ].map((item) => (
+              <div key={item.k}>
+                <h2 className="font-display text-xl">{item.k}</h2>
+                <p className="mt-2 text-[0.95rem] text-stone">{item.v}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 

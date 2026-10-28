@@ -25,7 +25,7 @@ export function SiteHeader() {
 
         <div className="hidden md:block">
           <Button href="/enquire" variant="solid">
-            Check your date
+            Check availability
           </Button>
         </div>
 

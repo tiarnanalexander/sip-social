@@ -12,7 +12,7 @@ import { getGalleryImages, getSiteFaqs } from "@/lib/content/get";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: `${site.name} — Mobile Coffee Cart Hire for Weddings, Corporate Events & Launches`,
+  title: `${site.name} - Mobile Coffee Cart Hire for Weddings, Corporate Events & Launches`,
   description: site.description,
   alternates: { canonical: "/" },
 };
