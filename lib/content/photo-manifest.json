@@ -440,5 +440,83 @@
         "h": 1536
       }
     }
+  },
+  "garden-party": {
+    "alt": "Sip Social coffee cart set up in a back garden for a private party",
+    "source": "175b3658-image.png",
+    "variants": {
+      "wide": {
+        "file": "garden-party-wide.jpg",
+        "w": 1536,
+        "h": 864
+      },
+      "ultra": {
+        "file": "garden-party-ultra.jpg",
+        "w": 1536,
+        "h": 658
+      },
+      "portrait": {
+        "file": "garden-party-portrait.jpg",
+        "w": 1280,
+        "h": 1600
+      },
+      "square": {
+        "file": "garden-party-square.jpg",
+        "w": 1536,
+        "h": 1536
+      }
+    }
+  },
+  "wedding-reception": {
+    "alt": "Sip Social coffee cart serving guests at a wedding reception",
+    "source": "1e5f6f8a-image.png",
+    "variants": {
+      "wide": {
+        "file": "wedding-reception-wide.jpg",
+        "w": 1536,
+        "h": 864
+      },
+      "ultra": {
+        "file": "wedding-reception-ultra.jpg",
+        "w": 1536,
+        "h": 658
+      },
+      "portrait": {
+        "file": "wedding-reception-portrait.jpg",
+        "w": 1280,
+        "h": 1600
+      },
+      "square": {
+        "file": "wedding-reception-square.jpg",
+        "w": 1536,
+        "h": 1536
+      }
+    }
+  },
+  "office-saas": {
+    "alt": "Sip Social coffee cart serving a queue at a modern office event",
+    "source": "64f3328b-image.jpg",
+    "variants": {
+      "wide": {
+        "file": "office-saas-wide.jpg",
+        "w": 1536,
+        "h": 864
+      },
+      "ultra": {
+        "file": "office-saas-ultra.jpg",
+        "w": 1536,
+        "h": 658
+      },
+      "portrait": {
+        "file": "office-saas-portrait.jpg",
+        "w": 1280,
+        "h": 1600
+      },
+      "square": {
+        "file": "office-saas-square.jpg",
+        "w": 1536,
+        "h": 1536
+      }
+    }
   }
 }

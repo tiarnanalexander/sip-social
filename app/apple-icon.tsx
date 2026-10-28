@@ -1,9 +1,18 @@
 import { ImageResponse } from "next/og";
+import { readFileSync } from "fs";
+import { join } from "path";
 
 export const size = { width: 180, height: 180 };
 export const contentType = "image/png";
 
+/**
+ * Same real "S" mark as icon.tsx, scaled up for the iOS home-screen icon
+ * (which applies its own rounding, so no border-radius here).
+ */
 export default function AppleIcon() {
+  const mark = readFileSync(join(process.cwd(), "public/images/logo-s.png"));
+  const markSrc = `data:image/png;base64,${mark.toString("base64")}`;
+
   return new ImageResponse(
     (
       <div
@@ -16,17 +25,7 @@ export default function AppleIcon() {
           background: "#fffbea",
         }}
       >
-        <div
-          style={{
-            fontSize: 110,
-            fontWeight: 700,
-            color: "#000",
-            fontFamily: "system-ui, sans-serif",
-            letterSpacing: "-0.04em",
-          }}
-        >
-          S
-        </div>
+        <img src={markSrc} width={95} height={150} alt="" />
       </div>
     ),
     size

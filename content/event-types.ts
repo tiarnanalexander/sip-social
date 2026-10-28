@@ -13,74 +13,6 @@ import type { EventType } from "@/lib/content/types";
  */
 export const eventTypes: EventType[] = [
   {
-    slug: "wedding-coffee-cart",
-    name: "Wedding Coffee Cart Hire",
-    shortName: "Weddings",
-    heroImage: { base: "/images/photos/zoe-with-cart", alt: "Sip Social coffee cart set up for a wedding" },
-    intro:
-      "A coffee cart gives your guests something to do and somewhere to gather, at exactly the moments a wedding day needs it most.",
-    body: [
-      "The gap between ceremony and wedding breakfast is the hardest part of a wedding day to plan for. Guests are dressed up, photos are happening, and there's often an hour or two with nothing official going on. A coffee cart gives people a reason to linger somewhere specific — and a hot drink is especially welcome if your ceremony is outdoors or the weather turns.",
-      "It works just as well later in the day. An evening coffee cart, after the dancing has been going a while, is a genuinely appreciated reset — and it keeps the night going for guests who'd otherwise start heading home.",
-      "Most couples choose the all-inclusive package for a wedding, so no guest reaches for their wallet. If it suits your day, the branded experience lets you put your own monogram or wedding date on the takeaway cups — a detail guests tend to photograph.",
-    ],
-    highlights: [
-      "Fills the ceremony-to-breakfast gap guests remember",
-      "Works outdoors, indoors, or both across the day",
-      "Branded cups make a lovely, photographable detail",
-      "One fixed fee — no guest ever needs to pay",
-    ],
-    suggestedPackageSlugs: ["all-inclusive", "branded-experience"],
-    faqs: [
-      {
-        q: "How much space does the cart need?",
-        a: "Enough for the cart itself and room for us to work and for a short queue to form — in practice a few metres is normally plenty. We'll confirm the exact footprint once we know your venue.",
-      },
-      {
-        q: "Can you work outdoors?",
-        a: "Yes, weather and venue access allowing. We'll talk through the specifics of your location, including power and any cover, when you enquire.",
-      },
-      {
-        q: "How far in advance should we book?",
-        a: "As early as you can once your date and venue are confirmed. Wedding season weekends go first.",
-      },
-    ],
-  },
-  {
-    slug: "corporate-coffee-cart",
-    name: "Corporate Event Coffee Cart",
-    shortName: "Corporate",
-    heroImage: { base: "/images/photos/cart-hero", alt: "Sip Social coffee cart at a corporate event" },
-    intro:
-      "Proper coffee, on site, for conferences, launches, office days and client events — no queue at a café down the road.",
-    body: [
-      "Good coffee changes the tone of a work event. It gives people a reason to stop at your stand, keeps a conference crowd alert through the afternoon slump, and gives staff something better than a vending machine on a long office day.",
-      "For client-facing events, the branded experience package puts your company's identity on the cart and the cups — a small, consistent touch that reinforces the brand at exactly the moment people are already paying attention.",
-      "We work with event organisers directly, so if you need particular timings, a specific footprint, or coordination with other suppliers on site, that's a normal part of planning your event.",
-    ],
-    highlights: [
-      "On-brand set-up available for client-facing events",
-      "Keeps a conference or all-day event running on good coffee",
-      "Pay-as-you-go suits open office or drop-in events",
-      "We coordinate directly with your event team",
-    ],
-    suggestedPackageSlugs: ["branded-experience", "all-inclusive", "pay-as-you-go"],
-    faqs: [
-      {
-        q: "Can you work inside an office building?",
-        a: "Yes — we just need to know about lift access, loading, and where we'll be set up, so get in touch with the building details.",
-      },
-      {
-        q: "Do you have public liability insurance?",
-        a: "Yes, we're fully insured. Details can be provided to your venue or facilities team on request.",
-      },
-      {
-        q: "Can we pay per head instead of a fixed fee?",
-        a: "That's what the pay-as-you-go package is for — guests buy individually, so there's no fixed fee at all. Let us know which suits your event when you enquire.",
-      },
-    ],
-  },
-  {
     slug: "product-launch-coffee-cart",
     name: "Product Launch & Brand Activation",
     shortName: "Launches",
@@ -134,6 +66,74 @@ export const eventTypes: EventType[] = [
       {
         q: "Do you need access to a kitchen or power supply?",
         a: "The cart is fully self-contained for most set-ups, but access to power is helpful. Tell us about your location when you enquire and we'll confirm what's needed.",
+      },
+    ],
+  },
+  {
+    slug: "wedding-coffee-cart",
+    name: "Wedding Coffee Cart Hire",
+    shortName: "Weddings",
+    heroImage: { base: "/images/photos/wedding-reception", alt: "Sip Social coffee cart serving guests at a wedding reception" },
+    intro:
+      "A coffee cart gives your guests something to do and somewhere to gather, at exactly the moments a wedding day needs it most.",
+    body: [
+      "The gap between ceremony and wedding breakfast is the hardest part of a wedding day to plan for. Guests are dressed up, photos are happening, and there's often an hour or two with nothing official going on. A coffee cart gives people a reason to linger somewhere specific — and a hot drink is especially welcome if your ceremony is outdoors or the weather turns.",
+      "It works just as well later in the day. An evening coffee cart, after the dancing has been going a while, is a genuinely appreciated reset — and it keeps the night going for guests who'd otherwise start heading home.",
+      "Most couples choose the all-inclusive package for a wedding, so no guest reaches for their wallet. If it suits your day, the branded experience lets you put your own monogram or wedding date on the takeaway cups — a detail guests tend to photograph.",
+    ],
+    highlights: [
+      "Fills the ceremony-to-breakfast gap guests remember",
+      "Works outdoors, indoors, or both across the day",
+      "Branded cups make a lovely, photographable detail",
+      "One fixed fee — no guest ever needs to pay",
+    ],
+    suggestedPackageSlugs: ["all-inclusive", "branded-experience"],
+    faqs: [
+      {
+        q: "How much space does the cart need?",
+        a: "Enough for the cart itself and room for us to work and for a short queue to form — in practice a few metres is normally plenty. We'll confirm the exact footprint once we know your venue.",
+      },
+      {
+        q: "Can you work outdoors?",
+        a: "Yes, weather and venue access allowing. We'll talk through the specifics of your location, including power and any cover, when you enquire.",
+      },
+      {
+        q: "How far in advance should we book?",
+        a: "As early as you can once your date and venue are confirmed. Wedding season weekends go first.",
+      },
+    ],
+  },
+  {
+    slug: "corporate-coffee-cart",
+    name: "Corporate Event Coffee Cart",
+    shortName: "Corporate",
+    heroImage: { base: "/images/photos/office-saas", alt: "Sip Social coffee cart serving a queue at a modern office event" },
+    intro:
+      "Proper coffee, on site, for conferences, launches, office days and client events — no queue at a café down the road.",
+    body: [
+      "Good coffee changes the tone of a work event. It gives people a reason to stop at your stand, keeps a conference crowd alert through the afternoon slump, and gives staff something better than a vending machine on a long office day.",
+      "For client-facing events, the branded experience package puts your company's identity on the cart and the cups — a small, consistent touch that reinforces the brand at exactly the moment people are already paying attention.",
+      "We work with event organisers directly, so if you need particular timings, a specific footprint, or coordination with other suppliers on site, that's a normal part of planning your event.",
+    ],
+    highlights: [
+      "On-brand set-up available for client-facing events",
+      "Keeps a conference or all-day event running on good coffee",
+      "Pay-as-you-go suits open office or drop-in events",
+      "We coordinate directly with your event team",
+    ],
+    suggestedPackageSlugs: ["branded-experience", "all-inclusive", "pay-as-you-go"],
+    faqs: [
+      {
+        q: "Can you work inside an office building?",
+        a: "Yes — we just need to know about lift access, loading, and where we'll be set up, so get in touch with the building details.",
+      },
+      {
+        q: "Do you have public liability insurance?",
+        a: "Yes, we're fully insured. Details can be provided to your venue or facilities team on request.",
+      },
+      {
+        q: "Can we pay per head instead of a fixed fee?",
+        a: "That's what the pay-as-you-go package is for — guests buy individually, so there's no fixed fee at all. Let us know which suits your event when you enquire.",
       },
     ],
   },
