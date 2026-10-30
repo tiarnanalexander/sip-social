@@ -1,0 +1,41 @@
+{
+  "slug": "corporate-coffee-cart",
+  "name": "Corporate Event Coffee Cart",
+  "shortName": "Corporate",
+  "order": 4,
+  "heroImage": {
+    "base": "/images/photos/office-saas",
+    "alt": "Sip Social coffee cart serving a queue at a modern office event"
+  },
+  "intro": "Proper coffee, on site, for conferences, launches, office days and client events \u2014 no queue at a caf\u00e9 down the road.",
+  "body": [
+    "Good coffee changes the tone of a work event. It gives people a reason to stop at your stand, keeps a conference crowd alert through the afternoon slump, and gives staff something better than a vending machine on a long office day.",
+    "For client-facing events, the branded experience package puts your company's identity on the cart and the cups \u2014 a small, consistent touch that reinforces the brand at exactly the moment people are already paying attention.",
+    "We work with event organisers directly, so if you need particular timings, a specific footprint, or coordination with other suppliers on site, that's a normal part of planning your event."
+  ],
+  "highlights": [
+    "On-brand set-up available for client-facing events",
+    "Keeps a conference or all-day event running on good coffee",
+    "Pay-as-you-go suits open office or drop-in events",
+    "We coordinate directly with your event team"
+  ],
+  "suggestedPackageSlugs": [
+    "branded-experience",
+    "all-inclusive",
+    "pay-as-you-go"
+  ],
+  "faqs": [
+    {
+      "q": "Can you work inside an office building?",
+      "a": "Yes \u2014 we just need to know about lift access, loading, and where we'll be set up, so get in touch with the building details."
+    },
+    {
+      "q": "Do you have public liability insurance?",
+      "a": "Yes, we're fully insured. Details can be provided to your venue or facilities team on request."
+    },
+    {
+      "q": "Can we pay per head instead of a fixed fee?",
+      "a": "That's what the pay-as-you-go package is for \u2014 guests buy individually, so there's no fixed fee at all. Let us know which suits your event when you enquire."
+    }
+  ]
+}

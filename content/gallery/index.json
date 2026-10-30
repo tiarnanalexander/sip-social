@@ -1,0 +1,19 @@
+{
+  "images": [
+    { "photo": "cart-hero", "featured": true },
+    { "photo": "zoe-portrait", "featured": true },
+    { "photo": "espresso-pour", "featured": false },
+    { "photo": "biscuits", "featured": true },
+    { "photo": "zoe-with-cart", "featured": false },
+    { "photo": "machine-plants", "featured": false },
+    { "photo": "cups-window", "featured": false },
+    { "photo": "zoe-behind-cart", "featured": false },
+    { "photo": "cart-sunlit", "featured": false },
+    { "photo": "beans", "featured": false },
+    { "photo": "portafilter", "featured": false },
+    { "photo": "barista-profile", "featured": false },
+    { "photo": "cart-serving", "featured": false },
+    { "photo": "cards-fanned", "featured": false },
+    { "photo": "cards-holder", "featured": false }
+  ]
+}

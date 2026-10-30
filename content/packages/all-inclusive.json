@@ -1,0 +1,15 @@
+{
+  "slug": "all-inclusive",
+  "name": "The All-Inclusive Option",
+  "tagline": "Prepaid package",
+  "description": "Your treat, our pleasure. Pay one upfront fee and let us take care of the rest — we'll set up and serve barista-style drinks for every guest, tailored to your numbers and the length of your event.",
+  "bestFor": ["Weddings", "Corporate events", "Private parties"],
+  "includes": [
+    "One fixed fee, no surprises on the day",
+    "Tailored to your guest count and event duration",
+    "Unlimited drinks for your guests",
+    "Full set-up, service and clear-down"
+  ],
+  "icon": "gift",
+  "order": 2
+}

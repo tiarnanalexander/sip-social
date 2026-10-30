@@ -1,0 +1,34 @@
+{
+  "slug": "private-party-coffee-cart",
+  "name": "Private Party Coffee Cart",
+  "shortName": "Private parties",
+  "order": 2,
+  "heroImage": {
+    "base": "/images/photos/cart-serving",
+    "alt": "Coffee being prepared on the Sip Social cart at a private event"
+  },
+  "intro": "Birthdays, christenings, garden parties and family celebrations \u2014 proper coffee for your guests, without you lifting a finger.",
+  "body": [
+    "Not every party needs a full bar, but most benefit from good coffee somewhere in the day \u2014 for the designated drivers, for anyone who needs to perk up before a long afternoon, or simply because it's a nicer thing to offer guests than instant from a flask.",
+    "We set up, serve, and clear down, so hosting the party doesn't mean also running a drinks station."
+  ],
+  "highlights": [
+    "Ideal for garden parties, birthdays and family celebrations",
+    "You host \u2014 we handle the coffee",
+    "Scales from a small gathering to a large garden party"
+  ],
+  "suggestedPackageSlugs": [
+    "all-inclusive",
+    "pay-as-you-go"
+  ],
+  "faqs": [
+    {
+      "q": "What's the smallest event you'll cater?",
+      "a": "Get in touch with your guest numbers and we'll let you know what works \u2014 there's no fixed minimum, but very small gatherings may suit a different package than a large one."
+    },
+    {
+      "q": "Do you need access to a kitchen or power supply?",
+      "a": "The cart is fully self-contained for most set-ups, but access to power is helpful. Tell us about your location when you enquire and we'll confirm what's needed."
+    }
+  ]
+}

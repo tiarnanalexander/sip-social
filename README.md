@@ -8,20 +8,45 @@ Next.js 15 (App Router) + React 19 + TypeScript + Tailwind CSS v4. Fully static,
 - **Instagram-style gallery feed** on the homepage, plus a full gallery page.
 - **SEO**: per-page metadata, Open Graph images generated automatically, sitemap, robots.txt, and structured data (schema.org) for the business, each service/event type, and FAQs — aimed at UK-wide search, not local-area pages (per your call to hold off town pages until you've run more events).
 - **Enquiry form** that emails you directly (via Resend) with a copy back to the enquirer, spam-protected with Cloudflare Turnstile and a honeypot field.
-- **Content layer**: all copy and data live in `content/*.ts`, read through `lib/content/get.ts`. Pages never import content directly — they take it as props. This is deliberate scaffolding: if you move to Makeswift (or any other visual CMS) later, you only need to swap what's behind `get.ts`, not rebuild the pages.
+- **Content layer**: event types, packages, how-it-works, gallery order/captions, site FAQs, and business details (phone/email/Instagram handle/etc.) each live as plain JSON files under `content/`, read through `lib/content/get.ts`. Pages never import content directly — they take it as props.
+- **Tina CMS** (`/admin` once deployed): a form-based editor over those same JSON files — Zoe can change text, swap photos (from the ones already processed), reorder the gallery, and edit FAQs/business details without touching code. Every change saves as a normal git commit. See "Editing content with Tina" below.
 
 ## Running it locally
 
 ```bash
 npm install
-npm run dev       # http://localhost:3000
+npm run dev       # http://localhost:3000, with Tina's local editor at /admin
 ```
 
 ```bash
-npm run build     # production build
+npm run build     # production build (requires Tina Cloud env vars - see below)
 npm run start     # serve the production build locally
 npm run lint       # ESLint
 ```
+
+`npm run dev` works fully locally with no Tina Cloud account — `/admin` just needs a browser. `npm run build` (what Vercel runs) needs the Tina Cloud credentials below, because that's what lets `/admin` work on the *live* deployed site, not just on your own machine.
+
+## Editing content with Tina
+
+Once set up, Zoe (or you) can go to `yoursite.co.uk/admin`, log in, and edit:
+
+- **Event Type Pages** — headline, intro, body copy, highlights, hero photo, suggested packages, FAQs, per-page
+- **Packages** — the three package cards (name, tagline, description, what's included)
+- **How It Works** — the four homepage steps
+- **Gallery** — drag to reorder, toggle which photos are "featured", pick from already-processed photos
+- **Site FAQs** — the FAQ list used on the homepage/elsewhere
+- **Business Details** — phone, email, Instagram handle, tagline, and the other facts that appear in the footer and SEO metadata
+
+Every save there is a real git commit to this repo — nothing is hidden in a separate database. Photos are a dropdown of already-processed images rather than a raw upload, because every photo on the site needs four pre-generated crop variants (see `lib/content/photo-manifest.json`) that nothing in Tina can produce automatically — adding a genuinely new photo still means running it through that crop step first (ask Claude) before it'll show up in the picker.
+
+### One-time setup (you'll need to do this yourself)
+
+1. Create a free account at [tina.io](https://tina.io) and connect this GitHub repo — their free tier covers this site comfortably (2 editors, unlimited content, 100GB/month).
+2. Tina will give you a **Client ID** and **Token**.
+3. Add these to Vercel's environment variables:
+   - `NEXT_PUBLIC_TINA_CLIENT_ID`
+   - `TINA_TOKEN`
+4. Redeploy. `yoursite.co.uk/admin` will then work for anyone you invite as an editor in the Tina dashboard.
 
 ## Environment variables
 
@@ -47,8 +72,8 @@ Without `INSTAGRAM_ACCESS_TOKEN`, the Instagram section simply doesn't render �
 
 ## Changing things day-to-day
 
-- **Text, packages, event-type pages, FAQs**: edit the files in `content/`. Everything is plain, readable TypeScript objects — no build tooling needed beyond saving the file.
-- **Photos**: `lib/content/photo-manifest.json` + `public/images/photos/`. Each photo has 4 pre-cropped variants (wide/ultra/portrait/square) so it looks right in every layout slot. Swapping a photo is a one-line change to the manifest plus dropping the new files in.
+- **Text, packages, event-type pages, FAQs, business details**: use Tina (`/admin`) once it's set up — see above. Or edit the JSON files in `content/` directly if you're comfortable with that; they're plain and readable either way.
+- **Photos**: `lib/content/photo-manifest.json` + `public/images/photos/`. Each photo has 4 pre-cropped variants (wide/ultra/portrait/square) so it looks right in every layout slot. A genuinely new photo needs that crop step run first — ask Claude — after which it'll show up as an option in both the JSON and Tina's photo picker.
 - **Brand colours/fonts**: `app/globals.css` (colour tokens at the top) and `lib/fonts.ts`.
 - **Town/local-area SEO pages**: scaffolded but intentionally empty in `content/towns.ts` — there's a comment there explaining exactly how to switch this on once you've got more events under your belt and want to target specific areas.
 

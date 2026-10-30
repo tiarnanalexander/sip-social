@@ -1,0 +1,40 @@
+{
+  "slug": "wedding-coffee-cart",
+  "name": "Wedding Coffee Cart Hire",
+  "shortName": "Weddings",
+  "order": 3,
+  "heroImage": {
+    "base": "/images/photos/wedding-reception",
+    "alt": "Sip Social coffee cart serving guests at a wedding reception"
+  },
+  "intro": "A coffee cart gives your guests something to do and somewhere to gather, at exactly the moments a wedding day needs it most.",
+  "body": [
+    "The gap between ceremony and wedding breakfast is the hardest part of a wedding day to plan for. Guests are dressed up, photos are happening, and there's often an hour or two with nothing official going on. A coffee cart gives people a reason to linger somewhere specific \u2014 and a hot drink is especially welcome if your ceremony is outdoors or the weather turns.",
+    "It works just as well later in the day. An evening coffee cart, after the dancing has been going a while, is a genuinely appreciated reset \u2014 and it keeps the night going for guests who'd otherwise start heading home.",
+    "Most couples choose the all-inclusive package for a wedding, so no guest reaches for their wallet. If it suits your day, the branded experience lets you put your own monogram or wedding date on the takeaway cups \u2014 a detail guests tend to photograph."
+  ],
+  "highlights": [
+    "Fills the ceremony-to-breakfast gap guests remember",
+    "Works outdoors, indoors, or both across the day",
+    "Branded cups make a lovely, photographable detail",
+    "One fixed fee \u2014 no guest ever needs to pay"
+  ],
+  "suggestedPackageSlugs": [
+    "all-inclusive",
+    "branded-experience"
+  ],
+  "faqs": [
+    {
+      "q": "How much space does the cart need?",
+      "a": "Enough for the cart itself and room for us to work and for a short queue to form \u2014 in practice a few metres is normally plenty. We'll confirm the exact footprint once we know your venue."
+    },
+    {
+      "q": "Can you work outdoors?",
+      "a": "Yes, weather and venue access allowing. We'll talk through the specifics of your location, including power and any cover, when you enquire."
+    },
+    {
+      "q": "How far in advance should we book?",
+      "a": "As early as you can once your date and venue are confirmed. Wedding season weekends go first."
+    }
+  ]
+}

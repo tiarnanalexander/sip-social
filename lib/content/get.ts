@@ -1,42 +1,86 @@
 /**
  * Content getters — the seam described in types.ts.
  *
- * Pages import from here, never from content/ directly. Every function is
- * synchronous today because the source is static files, but the signatures
- * are already async-safe to call (see getNav/getFaqs) so swapping an
- * implementation to an async CMS fetch later doesn't change any call site.
+ * Pages import from here, never from content/ directly. Content now lives
+ * as one JSON file per document (edited via Tina's /admin screen) rather
+ * than exported arrays, so these getters read the files directly - plain
+ * synchronous fs reads, same cost as the static imports they replaced, no
+ * new runtime dependency on Tina itself. Tina only needs to agree with
+ * these getters on the file shape (see tina/config.ts).
  */
-import { packages, howItWorks } from "@/content/packages";
-import { eventTypes, getEventTypeBySlug } from "@/content/event-types";
-import { galleryImages } from "@/content/gallery";
-import { towns } from "@/content/towns";
-import type { NavLink, FaqItem } from "./types";
+import fs from "fs";
+import path from "path";
+import type {
+  NavLink,
+  FaqItem,
+  EventType,
+  Package,
+  GalleryImage,
+} from "./types";
+import manifest from "./photo-manifest.json";
+import siteFaqs from "@/content/faqs/index.json";
+import howItWorksContent from "@/content/how-it-works/index.json";
+import galleryContent from "@/content/gallery/index.json";
 
-export function getPackages() {
-  return packages;
+const CONTENT_DIR = path.join(process.cwd(), "content");
+
+function readJsonDir<T>(dirName: string): T[] {
+  const dir = path.join(CONTENT_DIR, dirName);
+  const files = fs.readdirSync(dir).filter((f) => f.endsWith(".json"));
+  return files.map((f) => JSON.parse(fs.readFileSync(path.join(dir, f), "utf8")) as T);
 }
 
-export function getPackageBySlug(slug: string) {
-  return packages.find((p) => p.slug === slug);
+// --- Event types ---------------------------------------------------------
+
+function loadEventTypes(): (EventType & { order: number })[] {
+  return readJsonDir<EventType & { order: number }>("event-types").sort(
+    (a, b) => a.order - b.order
+  );
+}
+
+export function getEventTypes(): EventType[] {
+  return loadEventTypes();
+}
+
+export function getEventTypeBySlug(slug: string): EventType | undefined {
+  return loadEventTypes().find((e) => e.slug === slug);
+}
+
+// --- Packages --------------------------------------------------------------
+
+function loadPackages(): (Package & { order: number })[] {
+  return readJsonDir<Package & { order: number }>("packages").sort(
+    (a, b) => a.order - b.order
+  );
+}
+
+export function getPackages(): Package[] {
+  return loadPackages();
+}
+
+export function getPackageBySlug(slug: string): Package | undefined {
+  return loadPackages().find((p) => p.slug === slug);
 }
 
 export function getHowItWorks() {
-  return howItWorks;
+  return howItWorksContent.steps;
 }
 
-export function getEventTypes() {
-  return eventTypes;
+// --- Gallery -----------------------------------------------------------
+
+const manifestTyped = manifest as Record<string, { alt: string }>;
+
+export function getGalleryImages(): GalleryImage[] {
+  return galleryContent.images.map(({ photo, featured }) => {
+    const entry = manifestTyped[photo];
+    if (!entry) {
+      throw new Error(`getGalleryImages: missing manifest entry for "${photo}"`);
+    }
+    return { base: `/images/photos/${photo}`, alt: entry.alt, featured };
+  });
 }
 
-export { getEventTypeBySlug };
-
-export function getGalleryImages() {
-  return galleryImages;
-}
-
-export function getTowns() {
-  return towns;
-}
+// --- Nav & site FAQs -----------------------------------------------------
 
 export function getPrimaryNav(): NavLink[] {
   return [
@@ -48,26 +92,5 @@ export function getPrimaryNav(): NavLink[] {
 }
 
 export function getSiteFaqs(): FaqItem[] {
-  return [
-    {
-      q: "How does pricing work?",
-      a: "Every event is different, so we don't publish a fixed price list. Send us your event type, guest numbers and duration through the enquiry form and we'll come back with a tailored quote.",
-    },
-    {
-      q: "Do you only do weddings?",
-      a: "No — we cover weddings, corporate events, product launches, private parties and community pop-ups. See our packages page for how each works.",
-    },
-    {
-      q: "Are you insured?",
-      a: "Yes, Sip Social is fully insured. We're happy to share details with your venue if they need them.",
-    },
-    {
-      q: "How far do you travel?",
-      a: "Sip Social is fully mobile and takes bookings across the UK. Tell us your location when you enquire and we'll confirm availability.",
-    },
-    {
-      q: "What if it rains?",
-      a: "The cart can work undercover or indoors — let us know your venue and any backup plan when you enquire, so we can plan around the weather together.",
-    },
-  ];
+  return siteFaqs.items;
 }

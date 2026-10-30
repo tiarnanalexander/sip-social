@@ -1,0 +1,34 @@
+{
+  "slug": "product-launch-coffee-cart",
+  "name": "Product Launch & Brand Activation",
+  "shortName": "Launches",
+  "order": 1,
+  "heroImage": {
+    "base": "/images/photos/cart-sunlit",
+    "alt": "Branded Sip Social coffee cart at a product launch"
+  },
+  "intro": "Turn the cart into a fully branded activation \u2014 your logo, your cups, a standout moment guests will photograph.",
+  "body": [
+    "A branded coffee cart does two things a normal catering stand can't: it gives people a reason to come to you, and it hands them something with your branding on it that they'll carry around the room, photograph, and post. For a launch or activation, that's worth more than the coffee itself.",
+    "We apply your logo to the cart and print custom takeaway cups, so the whole set-up reads as part of your event rather than a generic add-on. It works as a standalone activation or alongside a wider launch."
+  ],
+  "highlights": [
+    "Your logo on the cart, your branding on every cup",
+    "A natural gathering point for guests at a launch",
+    "Genuinely photographable \u2014 built for social sharing",
+    "Flexible on timing, from a two-hour activation to a full day"
+  ],
+  "suggestedPackageSlugs": [
+    "branded-experience"
+  ],
+  "faqs": [
+    {
+      "q": "How far ahead do you need our branding?",
+      "a": "The earlier the better once you've booked \u2014 cup printing has its own lead time, so send logo files as soon as you have them."
+    },
+    {
+      "q": "Can the cart match our brand colours?",
+      "a": "Within what's practical on the day \u2014 let us know your palette when you enquire and we'll talk through what's possible."
+    }
+  ]
+}

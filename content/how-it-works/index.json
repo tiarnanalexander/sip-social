@@ -1,0 +1,8 @@
+{
+  "steps": [
+    { "title": "Get in touch", "body": "Tell us your date, location and what you've got in mind. No two events are the same, so there's no fixed price list — just an enquiry form that takes two minutes." },
+    { "title": "We check and quote", "body": "We check the date, work out what suits your guest numbers and event length, and send back a clear, tailored quote." },
+    { "title": "Confirm your date", "body": "Happy with the quote? We lock in your date and start planning the details — branding, menu, timings." },
+    { "title": "We arrive and set up", "body": "On the day, we bring the cart, the kit and the coffee. You and your guests just enjoy it." }
+  ]
+}

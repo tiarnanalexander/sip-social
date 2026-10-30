@@ -1,0 +1,15 @@
+{
+  "slug": "branded-experience",
+  "name": "The Branded Experience",
+  "tagline": "Your brand, our coffee",
+  "description": "Make Sip Social your own. We transform the cart into a bespoke branded experience — your logo on the cart and custom takeaway cups — for a standout, memorable moment with your guests.",
+  "bestFor": ["Product launches", "Brand activations", "Corporate hospitality"],
+  "includes": [
+    "Your logo applied to the cart",
+    "Custom-printed takeaway cups",
+    "Fully branded, photo-ready set-up",
+    "Can be combined with either package above"
+  ],
+  "icon": "sparkle",
+  "order": 3
+}

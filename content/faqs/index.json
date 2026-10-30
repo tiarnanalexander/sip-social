@@ -1,0 +1,9 @@
+{
+  "items": [
+    { "q": "How does pricing work?", "a": "Every event is different, so we don't publish a fixed price list. Send us your event type, guest numbers and duration through the enquiry form and we'll come back with a tailored quote." },
+    { "q": "Do you only do weddings?", "a": "No — we cover weddings, corporate events, product launches, private parties and community pop-ups. See our packages page for how each works." },
+    { "q": "Are you insured?", "a": "Yes, Sip Social is fully insured. We're happy to share details with your venue if they need them." },
+    { "q": "How far do you travel?", "a": "Sip Social is fully mobile and takes bookings across the UK. Tell us your location when you enquire and we'll confirm availability." },
+    { "q": "What if it rains?", "a": "The cart can work undercover or indoors — let us know your venue and any backup plan when you enquire, so we can plan around the weather together." }
+  ]
+}
