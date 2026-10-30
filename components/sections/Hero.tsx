@@ -1,13 +1,12 @@
-import { Picture } from "@/components/ui/Picture";
+import Image from "next/image";
 import { Button } from "@/components/ui/Button";
 import { WavyRule } from "@/components/ui/WavyRule";
 
 /**
- * Split hero rather than full-bleed banner: every source photo is a
- * portrait phone shot, so a 4:5 crop at full resolution (1536x1920) looks
- * considered in a half-width frame, where a stretched-thin 21:9 banner
- * crop of the same source would look soft. Design choice driven by what
- * the real photography actually is.
+ * Split hero rather than full-bleed banner: the source footage (and every
+ * photo) is shot portrait on a phone, so a 4:5 frame looks considered in a
+ * half-width slot, where a stretched-thin 21:9 banner crop would look soft.
+ * Design choice driven by what the real photography/footage actually is.
  */
 export function Hero() {
   return (
@@ -48,14 +47,34 @@ export function Hero() {
 
         <div className="order-1 lg:order-2">
           <div className="relative mx-auto aspect-[4/5] w-full max-w-md overflow-hidden rounded-[2.5rem] rounded-tr-[0.75rem] shadow-[0_30px_60px_-25px_rgba(0,0,0,0.35)] lg:max-w-none">
-            <Picture
-              base="/images/photos/cart-hero"
+            {/*
+             * Real event footage, muted and looping, with the poster frame as
+             * the instant first paint (so this stays the LCP element rather
+             * than waiting on video decode). Hidden for prefers-reduced-motion
+             * in favour of the static poster — autoplaying video is exactly
+             * the kind of motion that setting asks us to drop.
+             */}
+            <Image
+              src="/images/photos/hero-video-poster.jpg"
               alt="The Sip Social mobile coffee cart, set up and ready to serve"
-              crop="portrait"
+              width={864}
+              height={1080}
               priority
               sizes="(min-width: 1024px) 45vw, (min-width: 640px) 70vw, 92vw"
-              className="h-full w-full object-cover"
+              className="hidden h-full w-full object-cover motion-reduce:block"
             />
+            <video
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="auto"
+              poster="/images/photos/hero-video-poster.jpg"
+              aria-hidden="true"
+              className="h-full w-full object-cover motion-reduce:hidden"
+            >
+              <source src="/videos/hero.mp4" type="video/mp4" />
+            </video>
           </div>
         </div>
       </div>
