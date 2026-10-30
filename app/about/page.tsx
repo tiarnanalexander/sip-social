@@ -6,6 +6,7 @@ import { Faq } from "@/components/sections/Faq";
 import { FinalCta } from "@/components/sections/FinalCta";
 import { JsonLd, breadcrumbSchema } from "@/lib/schema";
 import { site } from "@/lib/site";
+import { getAboutContent } from "@/lib/content/get";
 
 export const metadata: Metadata = {
   title: "About Sip Social",
@@ -14,6 +15,7 @@ export const metadata: Metadata = {
 };
 
 export default function AboutPage() {
+  const about = getAboutContent();
   return (
     <>
       <JsonLd
@@ -61,7 +63,7 @@ export default function AboutPage() {
         <div className="order-1 lg:order-2">
           <div className="relative mx-auto aspect-[4/5] w-full max-w-md overflow-hidden rounded-[2.5rem] rounded-tl-[0.75rem] shadow-[0_30px_60px_-25px_rgba(0,0,0,0.35)] lg:max-w-none">
             <Picture
-              base="/images/photos/zoe-portrait"
+              base={about.portrait.base}
               alt={`${site.owner}, founder of Sip Social, holding a freshly made coffee`}
               crop="portrait"
               priority
@@ -93,10 +95,10 @@ export default function AboutPage() {
       </section>
 
       <div className="shell grid gap-6 py-16 sm:grid-cols-3">
-        {["machine-plants", "portafilter", "cards-fanned"].map((base) => (
-          <div key={base} className="relative aspect-square overflow-hidden rounded-2xl">
+        {about.bioImages.map((img) => (
+          <div key={img.base} className="relative aspect-square overflow-hidden rounded-2xl">
             <Picture
-              base={`/images/photos/${base}`}
+              base={img.base}
               alt=""
               crop="square"
               sizes="(min-width: 640px) 30vw, 90vw"

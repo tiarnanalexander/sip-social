@@ -175,6 +175,17 @@ export default defineConfig({
         ],
       },
       {
+        name: "about",
+        label: "About Page Photos",
+        path: "content/about",
+        format: "json",
+        ui: { global: true, allowedActions: { create: false, delete: false } },
+        fields: [
+          { type: "string", name: "portrait", label: "Portrait Photo (main photo of you)", options: photoOptions, required: true },
+          { type: "string", name: "bioImages", label: "Three Small Photos (shown in a row further down the page)", list: true, options: photoOptions },
+        ],
+      },
+      {
         name: "photoUpload",
         label: "Add New Photos",
         path: "content/photo-uploads",

@@ -21,6 +21,7 @@ import manifest from "./photo-manifest.json";
 import siteFaqs from "@/content/faqs/index.json";
 import howItWorksContent from "@/content/how-it-works/index.json";
 import galleryContent from "@/content/gallery/index.json";
+import aboutContent from "@/content/about/index.json";
 
 const CONTENT_DIR = path.join(process.cwd(), "content");
 
@@ -78,6 +79,25 @@ export function getGalleryImages(): GalleryImage[] {
     }
     return { base: `/images/photos/${photo}`, alt: entry.alt, featured };
   });
+}
+
+// --- About page ----------------------------------------------------------
+
+export function getAboutContent() {
+  const portraitEntry = manifestTyped[aboutContent.portrait];
+  if (!portraitEntry) {
+    throw new Error(`getAboutContent: missing manifest entry for "${aboutContent.portrait}"`);
+  }
+  return {
+    portrait: { base: `/images/photos/${aboutContent.portrait}` },
+    bioImages: aboutContent.bioImages.map((photo) => {
+      const entry = manifestTyped[photo];
+      if (!entry) {
+        throw new Error(`getAboutContent: missing manifest entry for "${photo}"`);
+      }
+      return { base: `/images/photos/${photo}` };
+    }),
+  };
 }
 
 // --- Nav & site FAQs -----------------------------------------------------
