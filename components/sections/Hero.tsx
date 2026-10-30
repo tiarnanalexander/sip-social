@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/Button";
 import { WavyRule } from "@/components/ui/WavyRule";
+import { HeroVideo } from "@/components/sections/HeroVideo";
 
 /**
  * Split hero rather than full-bleed banner: the source footage (and every
@@ -63,18 +64,7 @@ export function Hero() {
               sizes="(min-width: 1024px) 45vw, (min-width: 640px) 70vw, 92vw"
               className="hidden h-full w-full object-cover motion-reduce:block"
             />
-            <video
-              autoPlay
-              muted
-              loop
-              playsInline
-              preload="auto"
-              poster="/images/photos/hero-video-poster.jpg"
-              aria-hidden="true"
-              className="h-full w-full object-cover motion-reduce:hidden"
-            >
-              <source src="/videos/hero.mp4" type="video/mp4" />
-            </video>
+            <HeroVideo src="/videos/hero.mp4" poster="/images/photos/hero-video-poster.jpg" />
           </div>
         </div>
       </div>
