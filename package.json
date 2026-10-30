@@ -3,11 +3,14 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
+    "predev": "node scripts/generate-photo-manifest.js",
     "dev": "tinacms dev -c \"next dev\"",
+    "prebuild": "node scripts/generate-photo-manifest.js",
     "build": "node scripts/tina-build.js && next build",
     "start": "next start",
     "lint": "next lint",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "node scripts/generate-photo-manifest.js && tsc --noEmit",
+    "postinstall": "node scripts/generate-photo-manifest.js"
   },
   "dependencies": {
     "next": "^15.5.28",

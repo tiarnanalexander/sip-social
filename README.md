@@ -9,7 +9,7 @@ Next.js 15 (App Router) + React 19 + TypeScript + Tailwind CSS v4. Fully static,
 - **SEO**: per-page metadata, Open Graph images generated automatically, sitemap, robots.txt, and structured data (schema.org) for the business, each service/event type, and FAQs — aimed at UK-wide search, not local-area pages (per your call to hold off town pages until you've run more events).
 - **Enquiry form** that emails you directly (via Resend) with a copy back to the enquirer, spam-protected with Cloudflare Turnstile and a honeypot field.
 - **Content layer**: event types, packages, how-it-works, gallery order/captions, site FAQs, and business details (phone/email/Instagram handle/etc.) each live as plain JSON files under `content/`, read through `lib/content/get.ts`. Pages never import content directly — they take it as props.
-- **Tina CMS** (`/admin` once deployed): a form-based editor over those same JSON files — Zoe can change text, swap photos (from the ones already processed), reorder the gallery, and edit FAQs/business details without touching code. Every change saves as a normal git commit. See "Editing content with Tina" below.
+- **Tina CMS** (`/admin` once deployed): a form-based editor over those same JSON files — Zoe can change text, upload and pick photos, reorder the gallery, and edit FAQs/business details without touching code. Every change saves as a normal git commit. See "Editing content with Tina" below.
 
 ## Running it locally
 
@@ -30,14 +30,15 @@ npm run lint       # ESLint
 
 Once set up, Zoe (or you) can go to `yoursite.co.uk/admin`, log in, and edit:
 
+- **Add New Photos** — upload a raw photo, give it a short name and a description. Within a minute or two it's selectable everywhere else below.
 - **Event Type Pages** — headline, intro, body copy, highlights, hero photo, suggested packages, FAQs, per-page
 - **Packages** — the three package cards (name, tagline, description, what's included)
 - **How It Works** — the four homepage steps
-- **Gallery** — drag to reorder, toggle which photos are "featured", pick from already-processed photos
+- **Gallery** — drag to reorder, toggle which photos are "featured", pick a photo
 - **Site FAQs** — the FAQ list used on the homepage/elsewhere
 - **Business Details** — phone, email, Instagram handle, tagline, and the other facts that appear in the footer and SEO metadata
 
-Every save there is a real git commit to this repo — nothing is hidden in a separate database. Photos are a dropdown of already-processed images rather than a raw upload, because every photo on the site needs four pre-generated crop variants (see `lib/content/photo-manifest.json`) that nothing in Tina can produce automatically — adding a genuinely new photo still means running it through that crop step first (ask Claude) before it'll show up in the picker.
+Every save there is a real git commit to this repo — nothing is hidden in a separate database. Everywhere a photo is *used* (hero images, the gallery), it's picked from a dropdown rather than uploaded raw, because every photo on the site needs four pre-generated crop variants (see "Photos" under "Changing things day-to-day" below) that nothing in Tina can produce on its own. **Add New Photos** is the one place a raw upload happens: save a photo there and a build-time script (`scripts/generate-photo-manifest.js`) automatically generates those four crops and adds it to every photo picker on the site — no need to ask Claude for a new photo anymore.
 
 ### One-time setup (you'll need to do this yourself)
 
@@ -73,7 +74,7 @@ Without `INSTAGRAM_ACCESS_TOKEN`, the Instagram section simply doesn't render �
 ## Changing things day-to-day
 
 - **Text, packages, event-type pages, FAQs, business details**: use Tina (`/admin`) once it's set up — see above. Or edit the JSON files in `content/` directly if you're comfortable with that; they're plain and readable either way.
-- **Photos**: `lib/content/photo-manifest.json` + `public/images/photos/`. Each photo has 4 pre-cropped variants (wide/ultra/portrait/square) so it looks right in every layout slot. A genuinely new photo needs that crop step run first — ask Claude — after which it'll show up as an option in both the JSON and Tina's photo picker.
+- **Photos**: the easiest way is Tina's **Add New Photos** screen (see above) — upload, name it, done. Behind the scenes: raw uploads land in `public/uploads/` (tracked via `content/photo-uploads/index.json`), hand-curated photos and their crops live in `lib/content/photo-manifest.base.json`, and `scripts/generate-photo-manifest.js` merges the two into `lib/content/photo-manifest.json` + four cropped variants per photo in `public/images/photos/`, fresh on every build. That generated manifest is gitignored on purpose — only the curated base and the raw uploads are committed, since the crops can always be rebuilt from them.
 - **Brand colours/fonts**: `app/globals.css` (colour tokens at the top) and `lib/fonts.ts`.
 - **Town/local-area SEO pages**: scaffolded but intentionally empty in `content/towns.ts` — there's a comment there explaining exactly how to switch this on once you've got more events under your belt and want to target specific areas.
 

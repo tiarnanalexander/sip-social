@@ -8,13 +8,15 @@ import manifest from "../lib/content/photo-manifest.json";
  * details - not page layout or design, which stays code-controlled.
  *
  * Photos are a select from the darkroom manifest rather than a raw image
- * upload: every photo on the site needs four pre-generated crops (wide,
- * ultra, portrait, square - see lib/content/get.ts and components/ui/
- * Picture.tsx), which nothing in Tina can produce on its own. Picking from
- * already-processed photos keeps every selection safe to render; adding a
- * brand-new photo still means running it through that crop step first
- * (ask Claude, or extend scripts/ if one gets added) before it can show up
- * in this list.
+ * upload everywhere they're used: every photo on the site needs four
+ * pre-generated crops (wide, ultra, portrait, square - see
+ * lib/content/get.ts and components/ui/Picture.tsx), which nothing in Tina
+ * can produce on its own. Picking from already-processed photos keeps every
+ * selection safe to render. The "Add New Photos" collection below is the one
+ * place a raw upload is accepted - scripts/generate-photo-manifest.js turns
+ * each one into the four crops at build time and adds it to this list
+ * automatically, so a new photo shows up here within a build or two of
+ * being uploaded with no manual step.
  */
 const photoOptions = Object.entries(manifest as Record<string, { alt: string }>).map(
   ([key, entry]) => ({ value: key, label: `${key} — ${entry.alt}` })
@@ -168,6 +170,32 @@ export default defineConfig({
             fields: [
               { type: "string", name: "q", label: "Question", required: true },
               { type: "string", name: "a", label: "Answer", ui: { component: "textarea" }, required: true },
+            ],
+          },
+        ],
+      },
+      {
+        name: "photoUpload",
+        label: "Add New Photos",
+        path: "content/photo-uploads",
+        format: "json",
+        ui: {
+          global: true,
+          allowedActions: { create: false, delete: false },
+        },
+        fields: [
+          {
+            type: "object",
+            name: "items",
+            label: "Photos",
+            list: true,
+            ui: { itemProps: (item) => ({ label: item?.label }) },
+            fields: [
+              { type: "image", name: "image", label: "Photo", required: true },
+              { type: "string", name: "label", label: "Name this photo", required: true,
+                description: "A short name, e.g. \"Cart at the Fenwick wedding\" — this is how you'll find it later when choosing photos elsewhere on the site." },
+              { type: "string", name: "alt", label: "Short description (for accessibility & SEO)", required: true,
+                description: "Describe what's in the photo in a plain sentence, e.g. \"The Sip Social cart set up under fairy lights at an evening wedding.\"" },
             ],
           },
         ],
