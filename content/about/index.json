@@ -1,16 +1,27 @@
 {
   "portrait": "zoe-portrait",
-  "bioImages": ["machine-plants", "portafilter", "cards-fanned"],
+  "bioImages": [
+    "machine-plants",
+    "portafilter",
+    "cards-fanned"
+  ],
   "bio": [
-    "Sip Social started with a simple idea: the best part of a good event is the moment you stop, take a breath, and have a proper coffee with someone. Most events don't have that moment built in — there's a buffet, maybe a bar, but rarely a café.",
-    "I set out to change that. Every drink is made properly, to order, by a trained barista — because an event full of people deserves better than instant coffee from an urn.",
-    "Since then it's grown into a fully mobile set-up, equipped and insured, that travels to weddings, office days, launches and parties. Whatever the occasion, the goal is the same one I started with — bring your favourite café to you, and make people's day a little better, one sip at a time."
+    "What started as a little dream and a big love for coffee has turned into something pretty special. \n\nWelcome to Sip Social!\n\nI created Sip Social with one simple idea in mind: to bring the café experience to you. Because I believe great coffee is about so much more than just the drink. It's about bringing people together, creating connections and making those little moments feel special.\n\nFrom weddings and celebrations to corporate events and everything in between, Sip Social is here to add that extra little something to your occasion. Think delicious barista made coffee, a beautiful coffee cart and friendly service, all wrapped up in a relaxed café atmosphere.\n\nAs the founder and the face behind the coffee machine, I put my heart into every booking. Whether I'm serving 20 guests or 200, my goal is always the same: to make sure everyone leaves with a great coffee and a smile.\n\nSmall beans, big plans.\n\nI can't wait to bring Sip Social to your next event!\n\nZoe x"
   ],
   "featuresHeading": "Mobile. Equipped. Insured.",
   "features": [
-    { "title": "Anywhere in the UK", "body": "We travel to you — no venue is too far." },
-    { "title": "Barista-grade kit", "body": "Proper machine, grinder and everything in between." },
-    { "title": "Covered on-site", "body": "Public liability cover, details on request for your venue." }
+    {
+      "title": "Anywhere in the UK",
+      "body": "We travel to you — no venue is too far."
+    },
+    {
+      "title": "Barista-grade kit",
+      "body": "Proper machine, grinder and everything in between."
+    },
+    {
+      "title": "Covered on-site",
+      "body": "Public liability cover, details on request for your venue."
+    }
   ],
   "faqs": [
     {
