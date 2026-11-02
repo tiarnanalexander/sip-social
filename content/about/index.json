@@ -1,4 +1,25 @@
 {
   "portrait": "zoe-portrait",
-  "bioImages": ["machine-plants", "portafilter", "cards-fanned"]
+  "bioImages": ["machine-plants", "portafilter", "cards-fanned"],
+  "bio": [
+    "Sip Social started with a simple idea: the best part of a good event is the moment you stop, take a breath, and have a proper coffee with someone. Most events don't have that moment built in — there's a buffet, maybe a bar, but rarely a café.",
+    "I set out to change that. Every drink is made properly, to order, by a trained barista — because an event full of people deserves better than instant coffee from an urn.",
+    "Since then it's grown into a fully mobile set-up, equipped and insured, that travels to weddings, office days, launches and parties. Whatever the occasion, the goal is the same one I started with — bring your favourite café to you, and make people's day a little better, one sip at a time."
+  ],
+  "featuresHeading": "Mobile. Equipped. Insured.",
+  "features": [
+    { "title": "Anywhere in the UK", "body": "We travel to you — no venue is too far." },
+    { "title": "Barista-grade kit", "body": "Proper machine, grinder and everything in between." },
+    { "title": "Covered on-site", "body": "Public liability cover, details on request for your venue." }
+  ],
+  "faqs": [
+    {
+      "q": "What areas do you cover?",
+      "a": "Sip Social is fully mobile and takes bookings across the UK — tell us your location and we'll confirm availability."
+    },
+    {
+      "q": "Can I see you in action before booking?",
+      "a": "Keep an eye on our Instagram for upcoming pop-ups, or ask when you enquire — we're happy to point you to photos and feedback from recent events."
+    }
+  ]
 }

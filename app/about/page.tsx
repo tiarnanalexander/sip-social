@@ -34,24 +34,9 @@ export default function AboutPage() {
           <WavyRule className="mt-6 h-[7px] w-32 text-ink" />
 
           <div className="measure-s mt-7 space-y-5 text-stone">
-            <p>
-              Sip Social started with a simple idea: the best part of a good
-              event is the moment you stop, take a breath, and have a proper
-              coffee with someone. Most events don&apos;t have that moment built
-              in — there&apos;s a buffet, maybe a bar, but rarely a café.
-            </p>
-            <p>
-              I set out to change that. Every drink is made properly, to
-              order, by a trained barista — because an event full of people
-              deserves better than instant coffee from an urn.
-            </p>
-            <p>
-              Since then it&apos;s grown into a fully mobile set-up, equipped and
-              insured, that travels to weddings, office days, launches and
-              parties. Whatever the occasion, the goal is the same one I
-              started with — bring your favourite café to you, and make
-              people&apos;s day a little better, one sip at a time.
-            </p>
+            {about.bio.map((paragraph, i) => (
+              <p key={i}>{paragraph}</p>
+            ))}
           </div>
 
           <div className="mt-10 flex flex-wrap gap-4">
@@ -77,17 +62,13 @@ export default function AboutPage() {
       <section className="border-y border-cream-edge bg-cream-deep">
         <div className="shell py-16">
           <p className="font-display text-2xl sm:text-3xl">
-            Mobile. Equipped. Insured.
+            {about.featuresHeading}
           </p>
           <div className="mt-10 grid gap-8 sm:grid-cols-3">
-            {[
-              { k: "Anywhere in the UK", v: "We travel to you — no venue is too far." },
-              { k: "Barista-grade kit", v: "Proper machine, grinder and everything in between." },
-              { k: "Covered on-site", v: "Public liability cover, details on request for your venue." },
-            ].map((item) => (
-              <div key={item.k}>
-                <h2 className="font-display text-xl">{item.k}</h2>
-                <p className="mt-2 text-[0.95rem] text-stone">{item.v}</p>
+            {about.features.map((item) => (
+              <div key={item.title}>
+                <h2 className="font-display text-xl">{item.title}</h2>
+                <p className="mt-2 text-[0.95rem] text-stone">{item.body}</p>
               </div>
             ))}
           </div>
@@ -108,19 +89,7 @@ export default function AboutPage() {
         ))}
       </div>
 
-      <Faq
-        title="Before you enquire"
-        items={[
-          {
-            q: "What areas do you cover?",
-            a: "Sip Social is fully mobile and takes bookings across the UK — tell us your location and we'll confirm availability.",
-          },
-          {
-            q: "Can I see you in action before booking?",
-            a: "Keep an eye on our Instagram for upcoming pop-ups, or ask when you enquire — we're happy to point you to photos and feedback from recent events.",
-          },
-        ]}
-      />
+      <Faq title="Before you enquire" items={about.faqs} />
 
       <FinalCta />
     </>

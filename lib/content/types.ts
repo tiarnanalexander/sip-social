@@ -49,3 +49,12 @@ export type GalleryImage = ImageAsset & {
 export type NavLink = { href: string; label: string };
 
 export type FaqItem = { q: string; a: string };
+
+export type AboutContent = {
+  portrait: { base: string };
+  bioImages: { base: string }[];
+  bio: string[];
+  featuresHeading: string;
+  features: { title: string; body: string }[];
+  faqs: FaqItem[];
+};

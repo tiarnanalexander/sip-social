@@ -16,6 +16,7 @@ import type {
   EventType,
   Package,
   GalleryImage,
+  AboutContent,
 } from "./types";
 import manifest from "./photo-manifest.json";
 import siteFaqs from "@/content/faqs/index.json";
@@ -83,7 +84,7 @@ export function getGalleryImages(): GalleryImage[] {
 
 // --- About page ----------------------------------------------------------
 
-export function getAboutContent() {
+export function getAboutContent(): AboutContent {
   const portraitEntry = manifestTyped[aboutContent.portrait];
   if (!portraitEntry) {
     throw new Error(`getAboutContent: missing manifest entry for "${aboutContent.portrait}"`);
@@ -97,6 +98,10 @@ export function getAboutContent() {
       }
       return { base: `/images/photos/${photo}` };
     }),
+    bio: aboutContent.bio,
+    featuresHeading: aboutContent.featuresHeading,
+    features: aboutContent.features,
+    faqs: aboutContent.faqs,
   };
 }
 

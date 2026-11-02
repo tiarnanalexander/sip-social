@@ -176,13 +176,37 @@ export default defineConfig({
       },
       {
         name: "about",
-        label: "About Page Photos",
+        label: "About Page",
         path: "content/about",
         format: "json",
         ui: { global: true, allowedActions: { create: false, delete: false } },
         fields: [
           { type: "string", name: "portrait", label: "Portrait Photo (main photo of you)", options: photoOptions, required: true },
           { type: "string", name: "bioImages", label: "Three Small Photos (shown in a row further down the page)", list: true, options: photoOptions },
+          { type: "string", name: "bio", label: "Your Story (one paragraph per box)", list: true, ui: { component: "textarea" }, required: true },
+          { type: "string", name: "featuresHeading", label: "Strip Heading (above the three highlights)", required: true },
+          {
+            type: "object",
+            name: "features",
+            label: "Highlights (the three short points under the strip heading)",
+            list: true,
+            ui: { itemProps: (item) => ({ label: item?.title }) },
+            fields: [
+              { type: "string", name: "title", label: "Title", required: true },
+              { type: "string", name: "body", label: "Body", required: true },
+            ],
+          },
+          {
+            type: "object",
+            name: "faqs",
+            label: "FAQs (shown near the bottom of this page)",
+            list: true,
+            ui: { itemProps: (item) => ({ label: item?.q }) },
+            fields: [
+              { type: "string", name: "q", label: "Question", required: true },
+              { type: "string", name: "a", label: "Answer", ui: { component: "textarea" }, required: true },
+            ],
+          },
         ],
       },
       {
