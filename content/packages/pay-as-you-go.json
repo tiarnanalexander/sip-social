@@ -1,15 +1,19 @@
 {
-  "slug": "pay-as-you-go",
   "name": "The Flexible Option",
+  "slug": "pay-as-you-go",
+  "order": 1,
   "tagline": "Pay as you go",
-  "description": "You bring the guests, we'll bring the coffee. Our mobile cart sets up at your event and guests simply buy their favourite drinks as they go — no upfront cost to you.",
-  "bestFor": ["Markets & pop-ups", "Community events", "Open-door occasions"],
+  "description": "You bring the guests, we'll bring the coffee. Our mobile cart sets up at your event and guests simply buy their favourite drinks as they go, no upfront cost to you.",
+  "bestFor": [
+    "Markets & pop-ups",
+    "Community events",
+    "Open-door occasions"
+  ],
   "includes": [
     "Fully equipped cart, set up and run by us",
-    "Guests pay per drink, cash or card",
+    "Guests pay per drink",
     "No minimum spend for you",
-    "Full menu of barista-made drinks"
+    "Full menu of barista made drinks"
   ],
-  "icon": "cart",
-  "order": 1
+  "icon": "cart"
 }
