@@ -5,10 +5,31 @@ import { enquirySchema, type EnquiryInput } from "@/lib/validation/enquiry";
 import { enquiryNotificationEmail, enquiryAutoReplyEmail } from "@/lib/email";
 import { site } from "@/lib/site";
 
+// What the enquirer typed, echoed back on error so the form can restore it.
+// React resets uncontrolled form fields after any <form action={...}> submit
+// completes - success or failure - so without this the form would otherwise
+// wipe everything the moment validation (or Turnstile, or sending) fails.
+// Loosely typed (not EnquiryInput) because it's built both from raw,
+// unvalidated form input and from the validated/parsed data, and it's only
+// ever used to repopulate form fields, never re-validated.
+export type EnquiryValues = Record<string, string | boolean>;
+
+function toEnquiryValues(source: Record<string, unknown>): EnquiryValues {
+  const rest = { ...source };
+  delete rest.company;
+  delete rest.turnstileToken;
+  return rest as EnquiryValues;
+}
+
 export type EnquiryState =
   | { status: "idle" }
   | { status: "success" }
-  | { status: "error"; message: string; fieldErrors?: Partial<Record<keyof EnquiryInput, string>> };
+  | {
+      status: "error";
+      message: string;
+      fieldErrors?: Partial<Record<keyof EnquiryInput, string>>;
+      values?: EnquiryValues;
+    };
 
 async function verifyTurnstile(token: string | undefined): Promise<boolean> {
   const secret = process.env.TURNSTILE_SECRET_KEY;
@@ -57,7 +78,12 @@ export async function submitEnquiry(
       const key = issue.path[0] as keyof EnquiryInput | undefined;
       if (key && !fieldErrors[key]) fieldErrors[key] = issue.message;
     }
-    return { status: "error", message: "Check the highlighted fields and try again.", fieldErrors };
+    return {
+      status: "error",
+      message: "Check the highlighted fields and try again.",
+      fieldErrors,
+      values: toEnquiryValues(raw),
+    };
   }
 
   const data = parsed.data;
@@ -69,7 +95,11 @@ export async function submitEnquiry(
 
   const human = await verifyTurnstile(data.turnstileToken);
   if (!human) {
-    return { status: "error", message: "We couldn't verify you're human — please try again." };
+    return {
+      status: "error",
+      message: "We couldn't verify you're human — please try again.",
+      values: toEnquiryValues(data),
+    };
   }
 
   const apiKey = process.env.RESEND_API_KEY;
@@ -93,6 +123,7 @@ export async function submitEnquiry(
       status: "error",
       message:
         "Sorry, enquiries aren't connected yet. Please email us directly at " + site.email + ".",
+      values: toEnquiryValues(data),
     };
   }
 
@@ -121,6 +152,7 @@ export async function submitEnquiry(
     return {
       status: "error",
       message: "Something went wrong sending your enquiry. Please email us directly at " + site.email + ".",
+      values: toEnquiryValues(data),
     };
   }
   if (toEnquirer.status === "rejected") {

@@ -31,8 +31,32 @@ export function EnquiryForm() {
     }
     if (state.status === "error") {
       document.getElementById("enquiry-status")?.focus();
+
+      // React resets uncontrolled form fields the moment a <form
+      // action={...}> submission completes, success or failure - so by the
+      // time we're here the browser has already wiped everything the
+      // enquirer typed. Write it straight back onto the DOM elements from
+      // what the server echoed back; these inputs are uncontrolled, so
+      // React won't fight this.
+      const form = formRef.current;
+      const values = state.values;
+      if (form && values) {
+        for (const [name, value] of Object.entries(values)) {
+          const field = form.elements.namedItem(name);
+          if (!field || field instanceof RadioNodeList) continue;
+          if (field instanceof HTMLInputElement && field.type === "checkbox") {
+            field.checked = Boolean(value);
+          } else if (
+            field instanceof HTMLInputElement ||
+            field instanceof HTMLSelectElement ||
+            field instanceof HTMLTextAreaElement
+          ) {
+            field.value = value == null ? "" : String(value);
+          }
+        }
+      }
     }
-  }, [state.status]);
+  }, [state]);
 
   if (state.status === "success") {
     return (
