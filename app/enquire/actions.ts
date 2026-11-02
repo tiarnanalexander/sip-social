@@ -73,7 +73,13 @@ export async function submitEnquiry(
   }
 
   const apiKey = process.env.RESEND_API_KEY;
-  const to = process.env.ENQUIRY_TO_EMAIL ?? site.email;
+  // Every enquiry notification goes to Zoe (ENQUIRY_TO_EMAIL, defaulting to
+  // her Outlook address) and to Tiarnan, who built/maintains the site and
+  // wants visibility on enquiries coming in. The auto-reply below still
+  // goes only to the enquirer.
+  const to = Array.from(
+    new Set([process.env.ENQUIRY_TO_EMAIL ?? site.email, "tiarnan.power@gmail.com"])
+  );
   const from = process.env.ENQUIRY_FROM_EMAIL ?? `Sip Social <onboarding@resend.dev>`;
 
   if (!apiKey) {
