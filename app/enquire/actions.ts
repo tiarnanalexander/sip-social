@@ -147,17 +147,25 @@ export async function submitEnquiry(
     }),
   ]);
 
-  if (toZoe.status === "rejected") {
-    console.error("[enquiry] failed to notify owner:", toZoe.reason);
+  // The Resend SDK does not throw on an API-level failure (e.g. a 403 from
+  // an unverified sending domain) — it resolves with { data: null, error }.
+  // So a rejected promise and a fulfilled-but-errored one both count as a
+  // real failure here; checking .status === "rejected" alone would miss the
+  // far more common case and silently report success to the enquirer.
+  const zoeError = toZoe.status === "rejected" ? toZoe.reason : toZoe.value.error;
+  const enquirerError = toEnquirer.status === "rejected" ? toEnquirer.reason : toEnquirer.value.error;
+
+  if (zoeError) {
+    console.error("[enquiry] failed to notify owner:", zoeError);
     return {
       status: "error",
       message: "Something went wrong sending your enquiry. Please email us directly at " + site.email + ".",
       values: toEnquiryValues(data),
     };
   }
-  if (toEnquirer.status === "rejected") {
+  if (enquirerError) {
     // The enquiry itself landed — don't block success on the nice-to-have auto-reply.
-    console.error("[enquiry] notified owner but auto-reply failed:", toEnquirer.reason);
+    console.error("[enquiry] notified owner but auto-reply failed:", enquirerError);
   }
 
   return { status: "success" };
