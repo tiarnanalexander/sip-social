@@ -14,6 +14,11 @@
       "image": "/uploads/IMG_8760.jpeg",
       "label": "Delicious barista made latte",
       "alt": "Silky smooth latte"
+    },
+    {
+      "image": "/uploads/IMG_8754.jpeg",
+      "label": "Gym set up",
+      "alt": "Ready to serve!"
     }
   ]
 }
