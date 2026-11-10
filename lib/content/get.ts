@@ -36,10 +36,28 @@ function readJsonDir<T>(dirName: string): T[] {
 
 // --- Event types ---------------------------------------------------------
 
+// Tina's photo picker (tina/config.ts's photoOptions) stores the bare
+// manifest key, e.g. "garden-party" - but content files authored by hand
+// before that picker existed stored the full "/images/photos/garden-party"
+// path, which is what Picture expects. Accept either so a photo picked in
+// Tina renders correctly without needing every hand-authored file rewritten.
+function resolvePhotoBase(value: string): string {
+  const key = value.startsWith("/images/photos/")
+    ? value.slice("/images/photos/".length)
+    : value;
+  if (!manifestTyped[key]) {
+    throw new Error(`resolvePhotoBase: missing manifest entry for "${key}"`);
+  }
+  return `/images/photos/${key}`;
+}
+
 function loadEventTypes(): (EventType & { order: number })[] {
-  return readJsonDir<EventType & { order: number }>("event-types").sort(
-    (a, b) => a.order - b.order
-  );
+  return readJsonDir<EventType & { order: number }>("event-types")
+    .map((e) => ({
+      ...e,
+      heroImage: { ...e.heroImage, base: resolvePhotoBase(e.heroImage.base) },
+    }))
+    .sort((a, b) => a.order - b.order);
 }
 
 export function getEventTypes(): EventType[] {
