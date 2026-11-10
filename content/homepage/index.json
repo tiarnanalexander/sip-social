@@ -1,14 +1,17 @@
 {
   "hero": {
-    "eyebrow": "Mobile coffee cart hire",
+    "eyebrow": "Mobile Coffee Bar Hire",
     "headline": "Elevating events,\none sip at a time.",
-    "intro": "A fully mobile coffee cart with barista-made drinks, set up wherever your event is — weddings, corporate days, launches and parties across the UK.",
+    "intro": "Mobile coffee bar bringing the café experience to you. Combining expertly crafted barista coffee with beautiful design and a personal touch, we make every occasion that little bit more special. From weddings and private celebrations to corporate events and brand activations, we're here to elevate your event, one sip at a time.",
     "strip": "Mobile. Equipped. Insured."
   },
   "positioning": {
     "headline": "Your favourite café,\nbrought to you.",
     "body": "Barista-grade equipment, proper beans, and drinks made the way you'd expect from a café counter — not a flask and a folding table. We bring that whole experience to wherever your event is happening, so your guests get the real thing.",
-    "photos": ["espresso-pour", "biscuits"]
+    "photos": [
+      "espresso-pour",
+      "biscuits"
+    ]
   },
   "packagesSection": {
     "heading": "Three ways to work with us",
