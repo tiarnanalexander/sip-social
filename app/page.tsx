@@ -8,7 +8,7 @@ import { InstagramFeed } from "@/components/sections/InstagramFeed";
 import { Faq } from "@/components/sections/Faq";
 import { FinalCta } from "@/components/sections/FinalCta";
 import { JsonLd, organizationSchema, faqSchema } from "@/lib/schema";
-import { getGalleryImages, getSiteFaqs } from "@/lib/content/get";
+import { getGalleryImages, getSiteFaqs, getHomepageContent } from "@/lib/content/get";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -19,16 +19,17 @@ export const metadata: Metadata = {
 
 export default function HomePage() {
   const faqs = getSiteFaqs().slice(0, 4);
+  const home = getHomepageContent();
   return (
     <>
       <JsonLd data={organizationSchema()} />
       <JsonLd data={faqSchema(faqs)} />
-      <Hero />
-      <Positioning />
-      <PackagesOverview />
-      <EventTypesStrip />
-      <HowItWorks />
-      <InstagramFeed fallback={getGalleryImages()} />
+      <Hero content={home.hero} />
+      <Positioning content={home.positioning} />
+      <PackagesOverview content={home.packagesSection} />
+      <EventTypesStrip content={home.eventTypesSection} />
+      <HowItWorks content={home.howItWorksSection} />
+      <InstagramFeed content={home.instagramSection} fallback={getGalleryImages()} />
       <Faq items={faqs} />
       <FinalCta />
     </>

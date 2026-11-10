@@ -1,19 +1,17 @@
 import { getHowItWorks } from "@/lib/content/get";
+import type { SectionHeading } from "@/lib/content/types";
 
 /**
  * The one place on the site that earns numbered markers - this genuinely is
  * a sequence (enquire, then quote, then confirm, then the day itself), not
  * decoration bolted onto an unordered list.
  */
-export function HowItWorks() {
+export function HowItWorks({ content }: { content: SectionHeading }) {
   const steps = getHowItWorks();
   return (
     <section className="shell py-20">
-      <h2 className="font-display text-4xl sm:text-5xl">How it works</h2>
-      <p className="measure-s mt-3 text-stone">
-        No price list, because no two events need the same thing — just a
-        quick back-and-forth to get your quote right.
-      </p>
+      <h2 className="font-display text-4xl sm:text-5xl">{content.heading}</h2>
+      <p className="measure-s mt-3 text-stone">{content.subtext}</p>
 
       <ol className="mt-14 grid gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-4">
         {steps.map((step, i) => (

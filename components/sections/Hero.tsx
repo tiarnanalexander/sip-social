@@ -2,6 +2,7 @@ import Image from "next/image";
 import { Button } from "@/components/ui/Button";
 import { WavyRule } from "@/components/ui/WavyRule";
 import { HeroVideo } from "@/components/sections/HeroVideo";
+import type { HomepageContent } from "@/lib/content/types";
 
 /**
  * Split hero rather than full-bleed banner: the source footage (and every
@@ -9,27 +10,23 @@ import { HeroVideo } from "@/components/sections/HeroVideo";
  * half-width slot, where a stretched-thin 21:9 banner crop would look soft.
  * Design choice driven by what the real photography/footage actually is.
  */
-export function Hero() {
+export function Hero({ content }: { content: HomepageContent["hero"] }) {
   return (
     <section className="relative overflow-hidden">
       <div className="shell grid items-center gap-10 py-14 lg:grid-cols-[1.05fr_1fr] lg:gap-16 lg:py-20">
         <div className="order-2 lg:order-1">
           <p className="rise rise-1 font-display text-lg text-bronze sm:text-xl">
-            Mobile coffee cart hire
+            {content.eyebrow}
           </p>
 
-          <h1 className="rise rise-2 mt-2 font-display text-5xl leading-[0.98] sm:text-6xl lg:text-[4.2rem]">
-            Elevating events,
-            <br />
-            one sip at a time.
+          <h1 className="rise rise-2 mt-2 whitespace-pre-line font-display text-5xl leading-[0.98] sm:text-6xl lg:text-[4.2rem]">
+            {content.headline}
           </h1>
 
           <WavyRule className="rise rise-3 mt-7 h-[7px] w-40 text-ink" />
 
           <p className="rise rise-3 measure-s mt-6 text-lg text-stone">
-            A fully mobile coffee cart with barista-made drinks, set up wherever
-            your event is — weddings, corporate days, launches and parties
-            across the UK.
+            {content.intro}
           </p>
 
           <div className="rise rise-4 mt-9 flex flex-wrap gap-4">
@@ -42,7 +39,7 @@ export function Hero() {
           </div>
 
           <p className="rise rise-4 mt-12 max-w-md border-t border-cream-edge pt-6 font-display text-lg text-stone">
-            Mobile. Equipped. Insured.
+            {content.strip}
           </p>
         </div>
 

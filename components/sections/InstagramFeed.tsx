@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import { Picture } from "@/components/ui/Picture";
 import { site } from "@/lib/site";
-import type { GalleryImage } from "@/lib/content/types";
+import type { GalleryImage, SectionHeading } from "@/lib/content/types";
 
 type Item = { id: string; src: string; permalink: string; caption: string };
 
@@ -16,7 +16,13 @@ type Item = { id: string; src: string; permalink: string; caption: string };
  * whole strip translates by exactly one copy's width on a seamless loop,
  * pausing on hover/focus so a caption or link stays readable.
  */
-export function InstagramFeed({ fallback }: { fallback: GalleryImage[] }) {
+export function InstagramFeed({
+  content,
+  fallback,
+}: {
+  content: SectionHeading;
+  fallback: GalleryImage[];
+}) {
   const [items, setItems] = useState<Item[] | null>(null);
 
   useEffect(() => {
@@ -42,10 +48,8 @@ export function InstagramFeed({ fallback }: { fallback: GalleryImage[] }) {
     <section className="on-ink overflow-hidden bg-ink py-20 text-cream">
       <div className="shell flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
         <div>
-          <h2 className="font-display text-4xl sm:text-5xl">Follow along</h2>
-          <p className="measure-s mt-3 text-cream/65">
-            The latest from events, pop-ups and the cart itself.
-          </p>
+          <h2 className="font-display text-4xl sm:text-5xl">{content.heading}</h2>
+          <p className="measure-s mt-3 text-cream/65">{content.subtext}</p>
         </div>
         <a
           href={site.instagram}

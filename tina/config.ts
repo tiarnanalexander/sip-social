@@ -47,8 +47,78 @@ export default defineConfig({
   schema: {
     collections: [
       {
+        name: "homepage",
+        label: "Home Page",
+        path: "content/homepage",
+        format: "json",
+        ui: { global: true, allowedActions: { create: false, delete: false } },
+        fields: [
+          {
+            type: "object",
+            name: "hero",
+            label: "Top Banner",
+            description: "The first thing people see when they land on the site.",
+            fields: [
+              { type: "string", name: "eyebrow", label: "Small Label (above the headline)", required: true },
+              { type: "string", name: "headline", label: "Main Headline", ui: { component: "textarea" }, required: true },
+              { type: "string", name: "intro", label: "Intro Line", ui: { component: "textarea" }, required: true },
+              { type: "string", name: "strip", label: "Small Line (under the buttons)", required: true },
+            ],
+          },
+          {
+            type: "object",
+            name: "positioning",
+            label: "\"Your Favourite Café\" Section",
+            fields: [
+              { type: "string", name: "headline", label: "Headline", ui: { component: "textarea" }, required: true },
+              { type: "string", name: "body", label: "Body Text", ui: { component: "textarea" }, required: true },
+              { type: "string", name: "photos", label: "Two Photos", list: true, options: photoOptions },
+            ],
+          },
+          {
+            type: "object",
+            name: "packagesSection",
+            label: "\"Three Ways To Work With Us\" Section",
+            description: "The packages themselves are edited under Packages, below — this is just the heading above them.",
+            fields: [
+              { type: "string", name: "heading", label: "Heading", required: true },
+              { type: "string", name: "subtext", label: "Subtext", ui: { component: "textarea" }, required: true },
+            ],
+          },
+          {
+            type: "object",
+            name: "eventTypesSection",
+            label: "\"Built For Your Kind Of Event\" Section",
+            description: "The event cards themselves are edited under Event Type Pages, below — this is just the heading above them.",
+            fields: [
+              { type: "string", name: "heading", label: "Heading", required: true },
+              { type: "string", name: "subtext", label: "Subtext", ui: { component: "textarea" }, required: true },
+            ],
+          },
+          {
+            type: "object",
+            name: "howItWorksSection",
+            label: "\"How It Works\" Section",
+            description: "The numbered steps themselves are edited under How It Works, below — this is just the heading above them.",
+            fields: [
+              { type: "string", name: "heading", label: "Heading", required: true },
+              { type: "string", name: "subtext", label: "Subtext", ui: { component: "textarea" }, required: true },
+            ],
+          },
+          {
+            type: "object",
+            name: "instagramSection",
+            label: "\"Follow Along\" Section",
+            fields: [
+              { type: "string", name: "heading", label: "Heading", required: true },
+              { type: "string", name: "subtext", label: "Subtext", ui: { component: "textarea" }, required: true },
+            ],
+          },
+        ],
+      },
+      {
         name: "eventType",
-        label: "Event Type Pages",
+        label: "Event Type Pages (also shown on the Home Page)",
         path: "content/event-types",
         format: "json",
         ui: {

@@ -17,12 +17,14 @@ import type {
   Package,
   GalleryImage,
   AboutContent,
+  HomepageContent,
 } from "./types";
 import manifest from "./photo-manifest.json";
 import siteFaqs from "@/content/faqs/index.json";
 import howItWorksContent from "@/content/how-it-works/index.json";
 import galleryContent from "@/content/gallery/index.json";
 import aboutContent from "@/content/about/index.json";
+import homepageContent from "@/content/homepage/index.json";
 
 const CONTENT_DIR = path.join(process.cwd(), "content");
 
@@ -102,6 +104,29 @@ export function getAboutContent(): AboutContent {
     featuresHeading: aboutContent.featuresHeading,
     features: aboutContent.features,
     faqs: aboutContent.faqs,
+  };
+}
+
+// --- Home page -------------------------------------------------------------
+
+export function getHomepageContent(): HomepageContent {
+  return {
+    hero: homepageContent.hero,
+    positioning: {
+      headline: homepageContent.positioning.headline,
+      body: homepageContent.positioning.body,
+      photos: homepageContent.positioning.photos.map((photo) => {
+        const entry = manifestTyped[photo];
+        if (!entry) {
+          throw new Error(`getHomepageContent: missing manifest entry for "${photo}"`);
+        }
+        return { base: `/images/photos/${photo}` };
+      }),
+    },
+    packagesSection: homepageContent.packagesSection,
+    eventTypesSection: homepageContent.eventTypesSection,
+    howItWorksSection: homepageContent.howItWorksSection,
+    instagramSection: homepageContent.instagramSection,
   };
 }
 

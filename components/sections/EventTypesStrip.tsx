@@ -1,17 +1,15 @@
 import Link from "next/link";
 import { Picture } from "@/components/ui/Picture";
 import { getEventTypes } from "@/lib/content/get";
+import type { SectionHeading } from "@/lib/content/types";
 
-export function EventTypesStrip() {
+export function EventTypesStrip({ content }: { content: SectionHeading }) {
   const events = getEventTypes();
   return (
     <section className="bg-cream-deep py-20">
       <div className="shell">
-        <h2 className="font-display text-4xl sm:text-5xl">Built for your kind of event</h2>
-        <p className="measure-s mt-3 text-stone">
-          From a wedding morning to a conference hall, the cart adapts to
-          where you need it.
-        </p>
+        <h2 className="font-display text-4xl sm:text-5xl">{content.heading}</h2>
+        <p className="measure-s mt-3 text-stone">{content.subtext}</p>
 
         <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {events.map((e) => (

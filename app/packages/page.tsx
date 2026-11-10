@@ -6,7 +6,7 @@ import { FinalCta } from "@/components/sections/FinalCta";
 import { Button } from "@/components/ui/Button";
 import { WavyRule } from "@/components/ui/WavyRule";
 import { JsonLd, breadcrumbSchema, serviceSchema } from "@/lib/schema";
-import { getPackages, getSiteFaqs } from "@/lib/content/get";
+import { getPackages, getSiteFaqs, getHomepageContent } from "@/lib/content/get";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -18,6 +18,7 @@ export const metadata: Metadata = {
 
 export default function PackagesPage() {
   const packages = getPackages();
+  const home = getHomepageContent();
   return (
     <>
       <JsonLd
@@ -107,7 +108,7 @@ export default function PackagesPage() {
         </div>
       </section>
 
-      <HowItWorks />
+      <HowItWorks content={home.howItWorksSection} />
       <Faq items={getSiteFaqs()} />
       <FinalCta />
     </>

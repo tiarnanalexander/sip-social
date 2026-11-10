@@ -2,18 +2,16 @@ import Link from "next/link";
 import { getPackages } from "@/lib/content/get";
 import { PackageIcon } from "./PackageIcon";
 import { Button } from "@/components/ui/Button";
+import type { SectionHeading } from "@/lib/content/types";
 
-export function PackagesOverview() {
+export function PackagesOverview({ content }: { content: SectionHeading }) {
   const packages = getPackages();
   return (
     <section className="shell py-20">
       <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
         <div>
-          <h2 className="font-display text-4xl sm:text-5xl">Three ways to work with us</h2>
-          <p className="measure-s mt-3 text-stone">
-            Every event is different, so pick the shape that fits yours —
-            or talk to us and we&apos;ll help you choose.
-          </p>
+          <h2 className="font-display text-4xl sm:text-5xl">{content.heading}</h2>
+          <p className="measure-s mt-3 text-stone">{content.subtext}</p>
         </div>
         <Button href="/packages" variant="ghost" className="hidden sm:inline-flex">
           Compare all packages

@@ -58,3 +58,14 @@ export type AboutContent = {
   features: { title: string; body: string }[];
   faqs: FaqItem[];
 };
+
+export type SectionHeading = { heading: string; subtext: string };
+
+export type HomepageContent = {
+  hero: { eyebrow: string; headline: string; intro: string; strip: string };
+  positioning: { headline: string; body: string; photos: { base: string }[] };
+  packagesSection: SectionHeading;
+  eventTypesSection: SectionHeading;
+  howItWorksSection: SectionHeading;
+  instagramSection: SectionHeading;
+};
