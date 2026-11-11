@@ -24,8 +24,42 @@ export function MobileNav({ items }: { items: NavLink[] }) {
     };
   }, [open]);
 
+  // Let Escape close the panel too, since the header's own hamburger button
+  // (now visually an X) sits underneath this panel - see the note on the
+  // close button below for why a second, portaled close control exists.
+  useEffect(() => {
+    if (!open) return;
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setOpen(false);
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [open]);
+
   const panel = open && (
     <div id={panelId} className="fixed inset-0 z-[100] flex flex-col bg-cream pt-28">
+      {/*
+       * A second close control, rendered here rather than relying on the
+       * header's hamburger-turned-X: that button sits inside <header>,
+       * which has its own stacking context (sticky + z-40) capped below
+       * this panel's z-[100], so once the panel is open it's painted
+       * entirely over the header and the X underneath is invisible and
+       * unclickable. Easiest fix is a close button that's actually part of
+       * this panel's own stacking context, in the same spot the hamburger
+       * sits in the header.
+       */}
+      <button
+        type="button"
+        aria-label="Close menu"
+        onClick={() => setOpen(false)}
+        className="absolute right-5 top-[1.125rem] flex h-11 w-11 items-center justify-center"
+      >
+        <span className="relative block h-6 w-6">
+          <span className="absolute left-0 top-1/2 block h-[2.5px] w-6 -translate-y-1/2 rotate-45 rounded-full bg-ink" />
+          <span className="absolute left-0 top-1/2 block h-[2.5px] w-6 -translate-y-1/2 -rotate-45 rounded-full bg-ink" />
+        </span>
+      </button>
+
       <nav aria-label="Mobile" className="shell flex flex-col gap-1">
         {items.map((item, i) => (
           <Link
