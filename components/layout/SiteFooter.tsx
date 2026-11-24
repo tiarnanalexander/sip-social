@@ -81,6 +81,12 @@ export function SiteFooter() {
             © {new Date().getFullYear()} {site.legalName}. Est. {site.foundedYear}.
           </p>
           <p>Mobile. Equipped. Insured.</p>
+          <p>
+            Website by{" "}
+            <a href="https://powerlocal.co.uk" className="underline-offset-2 transition-colors hover:text-cream hover:underline">
+              PowerLocal
+            </a>
+          </p>
         </div>
       </div>
     </footer>
