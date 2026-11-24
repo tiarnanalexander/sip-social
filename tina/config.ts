@@ -1,5 +1,5 @@
 import { defineConfig } from "tinacms";
-import manifest from "../lib/content/photo-manifest.json";
+import { PhotoPickerInput, PhotoPickerListInput } from "./photo-picker";
 
 /**
  * Tina's content model for the site's editable content. Deliberately scoped
@@ -7,7 +7,7 @@ import manifest from "../lib/content/photo-manifest.json";
  * event-type pages, packages, gallery order/captions, FAQs, business
  * details - not page layout or design, which stays code-controlled.
  *
- * Photos are a select from the darkroom manifest rather than a raw image
+ * Photos are a pick from the darkroom manifest rather than a raw image
  * upload everywhere they're used: every photo on the site needs four
  * pre-generated crops (wide, ultra, portrait, square - see
  * lib/content/get.ts and components/ui/Picture.tsx), which nothing in Tina
@@ -17,10 +17,24 @@ import manifest from "../lib/content/photo-manifest.json";
  * each one into the four crops at build time and adds it to this list
  * automatically, so a new photo shows up here within a build or two of
  * being uploaded with no manual step.
+ *
+ * These fields use `ui: { component: PhotoPickerInput }` rather than a
+ * plain `options: [...]` list. An `options` list has to be baked into the
+ * schema itself, so it changes shape (and its hash) every time Zoe uploads a
+ * photo - which is what used to break the Vercel build until the schema
+ * lock file was manually resynced. PhotoPickerInput instead fetches the
+ * current photo list itself, at runtime in the browser (see
+ * tina/photo-picker.tsx), so the schema never changes just because the
+ * photo list grew.
  */
-const photoOptions = Object.entries(manifest as Record<string, { alt: string }>).map(
-  ([key, entry]) => ({ value: key, label: `${key} — ${entry.alt}` })
-);
+// Tina's generated field types for `ui.component` expect an onChange that
+// takes a React.ChangeEvent, but Tina's own docs (and runtime behaviour) say
+// to call `input.onChange(value)` with the raw value directly - the type
+// doesn't match what Tina itself tells you to do, so these are `any` to
+// avoid fighting that mismatch rather than because the components are
+// loosely typed internally (see tina/photo-picker.tsx for their real types).
+const photoPickerField: any = { component: PhotoPickerInput };
+const photoPickerListField: any = { component: PhotoPickerListInput };
 
 const iconOptions = [
   { value: "cart", label: "Cart" },
@@ -72,7 +86,7 @@ export default defineConfig({
             fields: [
               { type: "string", name: "headline", label: "Headline", ui: { component: "textarea" }, required: true },
               { type: "string", name: "body", label: "Body Text", ui: { component: "textarea" }, required: true },
-              { type: "string", name: "photos", label: "Two Photos", list: true, options: photoOptions },
+              { type: "string", name: "photos", label: "Two Photos", list: true, ui: photoPickerListField },
             ],
           },
           {
@@ -136,7 +150,7 @@ export default defineConfig({
             name: "heroImage",
             label: "Hero Photo",
             fields: [
-              { type: "string", name: "base", label: "Photo", options: photoOptions, required: true },
+              { type: "string", name: "base", label: "Photo", ui: photoPickerField, required: true },
               { type: "string", name: "alt", label: "Alt Text (for accessibility/SEO)", required: true },
             ],
           },
@@ -218,7 +232,7 @@ export default defineConfig({
             list: true,
             ui: { itemProps: (item) => ({ label: item?.photo }) },
             fields: [
-              { type: "string", name: "photo", label: "Photo", options: photoOptions, required: true },
+              { type: "string", name: "photo", label: "Photo", ui: photoPickerField, required: true },
               { type: "boolean", name: "featured", label: "Featured (shows larger in the grid)" },
             ],
           },
@@ -251,8 +265,8 @@ export default defineConfig({
         format: "json",
         ui: { global: true, allowedActions: { create: false, delete: false } },
         fields: [
-          { type: "string", name: "portrait", label: "Portrait Photo (main photo of you)", options: photoOptions, required: true },
-          { type: "string", name: "bioImages", label: "Three Small Photos (shown in a row further down the page)", list: true, options: photoOptions },
+          { type: "string", name: "portrait", label: "Portrait Photo (main photo of you)", ui: photoPickerField, required: true },
+          { type: "string", name: "bioImages", label: "Three Small Photos (shown in a row further down the page)", list: true, ui: photoPickerListField },
           { type: "string", name: "bio", label: "Your Story (one paragraph per box)", list: true, ui: { component: "textarea" }, required: true },
           { type: "string", name: "featuresHeading", label: "Strip Heading (above the three highlights)", required: true },
           {

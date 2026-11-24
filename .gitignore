@@ -16,3 +16,6 @@ public/admin/
 # scripts/generate-photo-manifest.js on every dev/build. The curated base it
 # reads from, lib/content/photo-manifest.base.json, stays committed.
 lib/content/photo-manifest.json
+# Public copy of the same manifest, fetched at runtime by the Tina admin's
+# photo-picker field (tina/photo-picker.tsx) - see generate-photo-manifest.js.
+public/photo-manifest.json

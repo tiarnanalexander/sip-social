@@ -38,6 +38,13 @@ const OUTPUT_MANIFEST_PATH = path.join(ROOT, "lib/content/photo-manifest.json");
 const UPLOADS_DOC_PATH = path.join(ROOT, "content/photo-uploads/index.json");
 const PUBLIC_DIR = path.join(ROOT, "public");
 const PHOTOS_DIR = path.join(PUBLIC_DIR, "images/photos");
+// A second copy, servable over HTTP, so the Tina admin's photo-picker field
+// (tina/photo-picker.tsx) can fetch the current photo list at runtime in the
+// browser. This is deliberately NOT read by tina/config.ts - baking the
+// photo list into the schema itself is what caused every upload to break
+// the Vercel build (the schema's hash would change and drift from what Tina
+// Cloud had indexed). Fetching it at runtime keeps the schema itself fixed.
+const PUBLIC_MANIFEST_PATH = path.join(PUBLIC_DIR, "photo-manifest.json");
 
 const VARIANTS = {
   wide: { w: 1536, h: 864 },
@@ -84,6 +91,7 @@ async function run() {
 
   if (!uploads.items || uploads.items.length === 0) {
     fs.writeFileSync(OUTPUT_MANIFEST_PATH, JSON.stringify(manifest, null, 2) + "\n");
+    fs.writeFileSync(PUBLIC_MANIFEST_PATH, JSON.stringify(manifest, null, 2) + "\n");
     console.log("[photo-manifest] No uploads to process - wrote the curated manifest as-is.");
     return;
   }
@@ -140,6 +148,7 @@ async function run() {
 
   fs.mkdirSync(path.dirname(OUTPUT_MANIFEST_PATH), { recursive: true });
   fs.writeFileSync(OUTPUT_MANIFEST_PATH, JSON.stringify(manifest, null, 2) + "\n");
+  fs.writeFileSync(PUBLIC_MANIFEST_PATH, JSON.stringify(manifest, null, 2) + "\n");
 }
 
 run().catch((err) => {
